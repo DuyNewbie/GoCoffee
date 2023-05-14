@@ -11,6 +11,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String DuyMoiChoi = "test pust code to git";
+        String DuyMoiChoi = "test pust code to git 1";
     }
 }
