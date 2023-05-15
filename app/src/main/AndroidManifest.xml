@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GoCoffee"
         tools:targetApi="31">
         <activity
+            android:name=".LoginNewUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangeProfile"
             android:exported="true" />
         <activity
@@ -29,7 +32,7 @@
         </activity>
         <activity
             android:name=".WelcomeActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>
