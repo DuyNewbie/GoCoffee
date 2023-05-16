@@ -1,6 +1,8 @@
 package com.example.gocoffee;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +22,8 @@ public class ChangeProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                startActivity(new Intent(ChangeProfile.this, MainActivity.class));
+//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.idaccount,new Fragment()).commit();
             }
         });
     }
