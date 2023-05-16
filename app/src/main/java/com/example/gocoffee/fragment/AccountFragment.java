@@ -12,8 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.gocoffee.ChangeLangage;
+import com.example.gocoffee.ChangePass;
 import com.example.gocoffee.ChangeProfile;
+import com.example.gocoffee.Contact;
+import com.example.gocoffee.PurchaseHistory;
 import com.example.gocoffee.R;
+import com.example.gocoffee.TermsofService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +28,7 @@ import com.example.gocoffee.R;
 public class AccountFragment extends Fragment {
 
 
-    LinearLayout changeProfile;
+    LinearLayout changeProfile,changePass,logoutTK,history,dieuKhoan,contact,changeLang,thoatapp;
     public AccountFragment() {
         // Required empty public constructor
     }
@@ -50,11 +55,59 @@ public class AccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         changeProfile = view.findViewById(R.id.changeProfile);
+        changePass = view.findViewById(R.id.btnchangepass);
+        logoutTK = view.findViewById(R.id.btnlogoutTK);
+        history = view.findViewById(R.id.btnhistory);
+        dieuKhoan = view.findViewById(R.id.btnDieuKhoan);
+        contact = view.findViewById(R.id.btnContact);
+        changeLang = view.findViewById(R.id.btnChangeLang);
+        thoatapp = view.findViewById(R.id.btnThoat);
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChangeProfile.class);
                 startActivity(intent);
+            }
+        });
+        changePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChangePass.class);
+                startActivity(intent);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), PurchaseHistory.class);
+                startActivity(intent);
+            }
+        });
+        dieuKhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), TermsofService.class);
+                startActivity(intent);
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Contact.class);
+                startActivity(intent);
+            }
+        });
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChangeLangage.class);
+                startActivity(intent);
+            }
+        });
+        thoatapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
             }
         });
     }
