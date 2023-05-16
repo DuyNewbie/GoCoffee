@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.CartFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CartFragment"
+    android:background="#201520"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/img_20"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="30dp"/>
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Giỏ Hàng"
+        android:textSize="40dp"
+        android:textColor="#EBE7DD"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="30dp"/>
+</LinearLayout>
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="440dp"
+></androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thành tiền: "
+        android:textColor="#EBE7DD"
+        android:layout_marginLeft="150dp"
+        android:textSize="22dp"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="#EFE4C8"
+        app:cardCornerRadius="10dp">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/btn_Dang_Nhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="28dp"
+            android:text="Đặt Hàng"
+            android:padding="4dp"
+            android:backgroundTint="#EFE4C8"
+            android:textColor="#362C35"/>
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
