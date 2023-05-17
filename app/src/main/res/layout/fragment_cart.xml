@@ -62,5 +62,5 @@
             android:backgroundTint="#EFE4C8"
             android:textColor="#362C35"/>
     </androidx.cardview.widget.CardView>
-    </LinearLayout>
+    </LinearLayout  >
 </LinearLayout>
