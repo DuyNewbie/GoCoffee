@@ -13,37 +13,37 @@
         android:theme="@style/Theme.GoCoffee"
         tools:targetApi="31" >
         <activity
-            android:name=".ItemDetail"
+            android:name=".Screen.ItemDetail"
             android:exported="false" />
         <activity
             android:name=".Screen.LoginNewUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangeLangage"
+            android:name=".Screen.ChangeLangage"
             android:exported="false" />
         <activity
-            android:name=".Contact"
+            android:name=".Screen.Contact"
             android:exported="false" />
         <activity
-            android:name=".TermsofService"
+            android:name=".Screen.TermsofService"
             android:exported="false" />
         <activity
-            android:name=".ChangePass"
+            android:name=".Screen.ChangePass"
             android:exported="false" />
         <activity
-            android:name=".PurchaseHistory"
+            android:name=".Screen.PurchaseHistory"
             android:exported="false" />
         <activity
             android:name=".Screen.LoginUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangeProfile"
+            android:name=".Screen.ChangeProfile"
             android:exported="true" />
         <activity
             android:name=".Screen.Wecome2Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Screen.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

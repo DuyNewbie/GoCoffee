@@ -1,4 +1,4 @@
-package com.example.gocoffee;
+package com.example.gocoffee.Screen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.gocoffee.R;
 import com.example.gocoffee.fragment.AccountFragment;
 import com.example.gocoffee.fragment.CartFragment;
 import com.example.gocoffee.fragment.HomeFragment;

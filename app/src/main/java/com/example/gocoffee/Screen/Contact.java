@@ -1,14 +1,16 @@
-package com.example.gocoffee;
+package com.example.gocoffee.Screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ChangeLangage extends AppCompatActivity {
+import com.example.gocoffee.R;
+
+public class Contact extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_langage);
+        setContentView(R.layout.activity_contact);
     }
 }

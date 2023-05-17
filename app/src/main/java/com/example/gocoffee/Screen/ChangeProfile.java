@@ -1,15 +1,13 @@
-package com.example.gocoffee;
+package com.example.gocoffee.Screen;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.gocoffee.fragment.AccountFragment;
+import com.example.gocoffee.R;
 
 public class ChangeProfile extends AppCompatActivity {
     ImageView btnback;
