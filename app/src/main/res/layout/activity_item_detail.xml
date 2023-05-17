@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screen.ItemDetail"
+    tools:context=".Screen.Home.ItemDetail"
     android:background="#362C35">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

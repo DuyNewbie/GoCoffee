@@ -1,4 +1,4 @@
-package com.example.gocoffee.Screen;
+package com.example.gocoffee.Screen.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.gocoffee.R;
 
-public class LoginUserActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_user);
+        setContentView(R.layout.activity_welcome);
     }
 }

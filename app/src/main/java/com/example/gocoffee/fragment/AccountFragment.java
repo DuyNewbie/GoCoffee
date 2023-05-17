@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.gocoffee.Screen.ChangeLangage;
-import com.example.gocoffee.Screen.ChangePass;
-import com.example.gocoffee.Screen.ChangeProfile;
-import com.example.gocoffee.Screen.Contact;
-import com.example.gocoffee.Screen.PurchaseHistory;
+import com.example.gocoffee.Screen.Setting.ChangeLangage;
+import com.example.gocoffee.Screen.Setting.ChangePass;
+import com.example.gocoffee.Screen.Setting.ChangeProfile;
+import com.example.gocoffee.Screen.Setting.Contact;
+import com.example.gocoffee.Screen.Setting.PurchaseHistory;
 import com.example.gocoffee.R;
-import com.example.gocoffee.Screen.TermsofService;
+import com.example.gocoffee.Screen.Setting.TermsofService;
 
 /**
  * A simple {@link Fragment} subclass.

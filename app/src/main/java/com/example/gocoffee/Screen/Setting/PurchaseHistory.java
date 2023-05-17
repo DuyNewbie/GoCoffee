@@ -1,4 +1,4 @@
-package com.example.gocoffee.Screen;
+package com.example.gocoffee.Screen.Setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 

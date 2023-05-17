@@ -13,34 +13,34 @@
         android:theme="@style/Theme.GoCoffee"
         tools:targetApi="31" >
         <activity
-            android:name=".Screen.ItemDetail"
+            android:name=".Screen.Home.ItemDetail"
             android:exported="false" />
         <activity
-            android:name=".Screen.LoginNewUserActivity"
+            android:name=".Screen.Login.LoginNewUserActivity"
             android:exported="false" />
         <activity
-            android:name=".Screen.ChangeLangage"
+            android:name=".Screen.Setting.ChangeLangage"
             android:exported="false" />
         <activity
-            android:name=".Screen.Contact"
+            android:name=".Screen.Setting.Contact"
             android:exported="false" />
         <activity
-            android:name=".Screen.TermsofService"
+            android:name=".Screen.Setting.TermsofService"
             android:exported="false" />
         <activity
-            android:name=".Screen.ChangePass"
+            android:name=".Screen.Setting.ChangePass"
             android:exported="false" />
         <activity
-            android:name=".Screen.PurchaseHistory"
+            android:name=".Screen.Setting.PurchaseHistory"
             android:exported="false" />
         <activity
-            android:name=".Screen.LoginUserActivity"
+            android:name=".Screen.Login.LoginUserActivity"
             android:exported="false" />
         <activity
-            android:name=".Screen.ChangeProfile"
+            android:name=".Screen.Setting.ChangeProfile"
             android:exported="true" />
         <activity
-            android:name=".Screen.Wecome2Activity"
+            android:name=".Screen.Login.Wecome2Activity"
             android:exported="false" />
         <activity
             android:name=".Screen.MainActivity"
@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Screen.WelcomeActivity"
+            android:name=".Screen.Login.WelcomeActivity"
             android:exported="true" />
     </application>
 
