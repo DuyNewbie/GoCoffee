@@ -1,6 +1,5 @@
 package com.example.gocoffee.Screen;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -8,8 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -18,7 +15,6 @@ import com.example.gocoffee.fragment.AccountFragment;
 import com.example.gocoffee.fragment.CartFragment;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
