@@ -1,6 +1,8 @@
 package com.example.gocoffee.Screen.Setting;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.MainActivity;
+import com.example.gocoffee.fragment.AccountFragment;
 
 public class ChangeProfile extends AppCompatActivity {
     ImageView btnback;
@@ -20,9 +23,13 @@ public class ChangeProfile extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(ChangeProfile.this, MainActivity.class));
-//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.idaccount,new Fragment()).commit();
+                Fragment fragment = new AccountFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.id_acount, fragment)
+                        .addToBackStack(ChangeProfile.class.getSimpleName())
+                        .commit();
+//                Intent intent = new Intent(ChangeProfile.this,AccountFragment.class);
+//                startActivity(intent);
             }
         });
     }

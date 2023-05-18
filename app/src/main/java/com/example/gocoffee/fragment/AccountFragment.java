@@ -1,5 +1,6 @@
 package com.example.gocoffee.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -26,7 +27,7 @@ import com.example.gocoffee.Screen.Setting.TermsofService;
  * create an instance of this fragment.
  */
 public class AccountFragment extends Fragment {
-
+    Context context;
 
     LinearLayout changeProfile,changePass,logoutTK,history,dieuKhoan,contact,changeLang,thoatapp;
     public AccountFragment() {
@@ -65,14 +66,14 @@ public class AccountFragment extends Fragment {
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ChangeProfile.class);
+                Intent intent = new Intent(getActivity(), ChangeProfile.class);
                 startActivity(intent);
             }
         });
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ChangePass.class);
+                Intent intent = new Intent(getActivity(), ChangePass.class);
                 startActivity(intent);
             }
         });

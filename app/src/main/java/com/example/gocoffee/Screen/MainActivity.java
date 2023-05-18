@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation.setAccentColor(Color.parseColor("#EFE4C8"));
         bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
-        if (savedInstanceState == null) {
-
-        }
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout , new HomeFragment()).commit();    //// set default fragment
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
