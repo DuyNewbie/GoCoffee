@@ -29,24 +29,52 @@
                 android:layout_marginLeft="23dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
-        <CheckBox android:id="@+id/checkbox_cheese"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:button="@drawable/checkbox_custom"
-            android:layout_marginLeft="23dp"
-            android:text="English (US)"
-            />
-        <CheckBox android:id="@+id/checkbox_vin"
-            android:layout_width="wrap_content"
+            android:weightSum="10"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
+            <CheckBox
+                android:layout_weight="1"
+                android:id="@+id/checkbox_cheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:button="@drawable/checkbox_custom"
+                android:layout_marginLeft="50dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:button="@drawable/checkbox_custom"
-            android:textSize="20dp"
-            android:layout_marginLeft="23dp"
-            android:text="VietNamese"
-            />
+            android:weightSum="10"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vietnamese"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
+            <CheckBox
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:button="@drawable/checkbox_custom"
+
+                />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
