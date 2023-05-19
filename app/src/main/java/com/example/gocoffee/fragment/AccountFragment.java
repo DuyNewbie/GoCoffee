@@ -73,7 +73,7 @@ public class AccountFragment extends Fragment {
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChangePass.class);
+                Intent intent = new Intent(getContext(), ChangePass.class);
                 startActivity(intent);
             }
         });

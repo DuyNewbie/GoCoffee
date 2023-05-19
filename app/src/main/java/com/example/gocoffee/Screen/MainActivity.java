@@ -33,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.home_24, R.color.color_tab_1);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.cart_24, R.color.color_tab_1);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.account_circle_24, R.color.color_tab_1);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.account_24, R.color.color_tab_1);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
-        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE_FORCE);
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
         bottomNavigation.setColored(true);
+
 
         bottomNavigation.setAccentColor(Color.parseColor("#EFE4C8"));
         bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
