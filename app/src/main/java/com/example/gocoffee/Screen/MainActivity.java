@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         String Hoangseven = "test pust code to git 1";
         String HungVh = "test pust code to git 1";
         String hiepDeepTry = "Hiệp đẹp trai vô địch vũ trụ";
+        String hoang7 = "Hoangseven";
 
         AHBottomNavigation bottomNavigation = findViewById(R.id.bottom_navigation);
 
