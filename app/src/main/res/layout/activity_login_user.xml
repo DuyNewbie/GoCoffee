@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screen.Login.LoginNewUserActivity"
+    tools:context=".Screen.Login.LoginUserActivity"
     android:background="#201520"
     android:orientation="vertical"
     >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <ImageView
@@ -16,6 +21,7 @@
         android:src="@drawable/img_3"
         android:layout_marginTop="10dp"
         android:layout_marginStart="80dp"/>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -28,19 +34,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:padding="4dp"
-            android:background="#EFE4C8">
+            android:background="#40333F">
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/baseline_person_24"
+                android:layout_marginTop="6dp"
+                />
             <EditText
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/new_username"
                 android:hint="User"
                 android:textSize="20dp"
-                android:drawableLeft="@drawable/ic_person"
                 android:padding="10dp"
                 android:textColor="@color/black"
+                android:textColorHint="#AEAEAE"
                 android:textColorHighlight="@color/cardview_dark_background"
                 />
 
@@ -57,23 +70,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:padding="4dp"
-            android:background="#EFE4C8">
+            android:background="#40333F">
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/baseline_person_24"
+                android:layout_marginTop="6dp"
+                />
             <EditText
+                android:layout_marginEnd="50dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/new_password"
                 android:hint="Password"
                 android:textSize="20dp"
-                android:drawableLeft="@drawable/icon_0lock"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColor="@color/black"
+                android:textColorHint="#AEAEAE"
                 android:textColorHighlight="@color/cardview_dark_background"
                 />
-
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/baseline_visibility_off_24"
+                />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -92,6 +118,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             />
         <TextView
             android:layout_width="match_parent"
@@ -134,5 +161,5 @@
             android:textAlignment="center"/>
 
 
-
+</LinearLayout>
 </LinearLayout>

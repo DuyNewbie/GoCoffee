@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.gocoffee.R;
 
-public class LoginNewUserActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_new_user);
+        setContentView(R.layout.activity_sign_up);
     }
 }
