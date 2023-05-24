@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.gocoffee.Screen.Login.LoginUserActivity;
+import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.Screen.Setting.ChangeLangage;
 import com.example.gocoffee.Screen.Setting.ChangePass;
 import com.example.gocoffee.Screen.Setting.ChangeProfile;
@@ -63,6 +65,9 @@ public class AccountFragment extends Fragment {
         contact = view.findViewById(R.id.btnContact);
         changeLang = view.findViewById(R.id.btnChangeLang);
         thoatapp = view.findViewById(R.id.btnThoat);
+
+        Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
+
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +108,14 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChangeLangage.class);
                 startActivity(intent);
+            }
+        });
+
+        logoutTK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(iLogout);
+                getActivity().finish();
             }
         });
         thoatapp.setOnClickListener(new View.OnClickListener() {

@@ -23,18 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String DuyMoiChoi = "test pust code to git 1";
-        String Hoangseven = "test pust code to git 1";
-        String HungVh = "test pust code to git 1";
-        String hiepDeepTry = "Hiệp đẹp trai vô địch vũ trụ";
-        String hoang7 = "Hoangseven";
-
         AHBottomNavigation bottomNavigation = findViewById(R.id.bottom_navigation);
 
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.home_24, R.color.color_tab_1);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.cart_24, R.color.color_tab_1);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.account_24, R.color.color_tab_1);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.ic_home, R.color.color_tab_1);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.ic_cart, R.color.color_tab_1);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.ic_account, R.color.color_tab_1);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
@@ -59,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     case 2 :
                         replaceFrament(new AccountFragment());
                         break;
-
                     default:
                         break;
                 }

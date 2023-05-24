@@ -12,48 +12,72 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoCoffee"
         tools:targetApi="31">
+
         <activity
             android:name=".Screen.Login.ChangePasswordActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".Screen.Login.SignUpActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".Screen.Home.ItemDetail"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.ChangeLangage"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.Contact"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.TermsofService"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.ChangePass"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.PurchaseHistory"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Login.LoginUserActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
         <activity
             android:name=".Screen.Setting.ChangeProfile"
-            android:exported="true" />
+            android:exported="true" >
+        </activity>
+
         <activity
             android:name=".Screen.Login.Wecome2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Screen.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Screen.MainActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".Screen.Login.WelcomeActivity"
             android:exported="true" />

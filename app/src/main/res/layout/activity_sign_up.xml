@@ -55,7 +55,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:src="@drawable/baseline_person_24" />
+            android:src="@drawable/ic_user" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -111,7 +111,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:src="@drawable/baseline_lock_24" />
+            />
 
     </RelativeLayout>
     <RelativeLayout
@@ -139,7 +139,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:padding="3dp"
-            android:src="@drawable/baseline_lock_24" />
+            />
 
     </RelativeLayout>
     <androidx.appcompat.widget.AppCompatButton

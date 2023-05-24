@@ -5,4 +5,10 @@
     <color name="back">#575349</color>
     <color name="color_tab_1">#423941</color>
     <color name="customnav">#EFE4C8</color>
+
+    <color name="bg_login">#362C35</color>
+    <color name="c_btn">#EFE4C8</color>
+    <color name="c_iconInput">#C3C0B8</color>
+    <color name="c_hintInput">#AEAEAE</color>
+    <color name="c_textInput">#DDD5C0</color>
 </resources>

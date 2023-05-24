@@ -24,13 +24,7 @@ public class ChangeProfile extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Fragment fragment = new AccountFragment();
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.id_acount, fragment)
-//                        .addToBackStack(ChangeProfile.class.getSimpleName())
-//                        .commit();
-                Intent intent = new Intent(ChangeProfile.this, MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
     }
