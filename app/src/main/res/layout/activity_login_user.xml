@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Screen.Login.LoginUserActivity"
     android:background="@color/bg_login"
-    android:orientation="vertical"
+    android:orientation="vertical" 
     >
 
     <ImageView
@@ -69,6 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:textColor="@color/white"
+            android:button="@drawable/checkbox_custom"
             />
         <TextView
             android:layout_width="match_parent"
