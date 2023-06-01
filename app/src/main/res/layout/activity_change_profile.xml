@@ -47,7 +47,7 @@
             <!-- INPUT -->
             <EditText
                 android:id="@+id/username_input"
-                android:layout_marginLeft="-10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon"
                 android:text=""
                 android:hint="Username"
@@ -77,7 +77,7 @@
             <!-- INPUT -->
             <EditText
                 android:id="@+id/username_input1"
-                android:layout_marginLeft="-10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon1"
                 android:text=""
                 android:hint="Username"
@@ -106,7 +106,7 @@
             <!-- INPUT -->
             <EditText
                 android:id="@+id/username_input2"
-                android:layout_marginLeft="-10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon2"
                 android:text=""
                 android:hint="Username"

@@ -64,7 +64,7 @@
         </activity>
 
         <activity
-            android:name=".Screen.Login.Wecome2Activity"
+            android:name=".Screen.Login.WelcomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,7 +79,7 @@
         </activity>
 
         <activity
-            android:name=".Screen.Login.WelcomeActivity"
+            android:name=".Screen.Login.Wecome2Activity"
             android:exported="true" />
     </application>
 
