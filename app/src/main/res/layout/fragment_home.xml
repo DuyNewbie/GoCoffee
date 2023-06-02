@@ -25,6 +25,7 @@
                 android:orientation="vertical"
                 android:layout_weight="7">
                 <TextView
+                    android:id="@+id/tvnameuser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="DuyMoiChoi"
@@ -34,6 +35,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="30dp"/>
                 <TextView
+                    android:id="@+id/tvrole"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="hạng thành viên"
@@ -51,6 +53,7 @@
                app:cardCornerRadius="40dp"
                >
                <ImageView
+                   android:id="@+id/imgavata"
                    android:layout_width="80dp"
                    android:layout_height="80dp"
                    android:src="@drawable/img_4"

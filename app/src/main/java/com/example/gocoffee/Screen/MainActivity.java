@@ -14,6 +14,7 @@ import com.example.gocoffee.R;
 import com.example.gocoffee.fragment.AccountFragment;
 import com.example.gocoffee.fragment.CartFragment;
 import com.example.gocoffee.fragment.HomeFragment;
+import com.example.gocoffee.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setAccentColor(Color.parseColor("#EFE4C8"));
         bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout , new HomeFragment()).commit();    //// set default fragment
+
+
+
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
