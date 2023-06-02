@@ -3,11 +3,12 @@ package com.example.gocoffee.models;
 import com.google.gson.annotations.SerializedName;
 
 public class AllUser {
+    @SerializedName("msg")
     private String msg;
     @SerializedName("listUser")
-    private User listUser = null;
+    private User[] listUser;
 
-    public AllUser(String msg, User listUser) {
+    public AllUser(String msg, User[] listUser) {
         this.msg = msg;
         this.listUser = listUser;
     }
@@ -20,11 +21,11 @@ public class AllUser {
         this.msg = msg;
     }
 
-    public User getListUser() {
+    public User[] getListUser() {
         return listUser;
     }
 
-    public void setListUser(User listUser) {
+    public void setListUser(User[] listUser) {
         this.listUser = listUser;
     }
 }

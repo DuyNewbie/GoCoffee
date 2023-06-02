@@ -14,11 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.Home_adapter_recyclerview;
 import com.example.gocoffee.models.SanPham;
+import com.example.gocoffee.models.User;
 
 import java.util.ArrayList;
 
@@ -33,6 +36,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private Home_adapter_recyclerview mAdapter;
     private ArrayList<SanPham> mArrayList = new ArrayList<>();
+    private TextView tvnameuser,tvroleuser;
+    private ImageView imgavata;
 
 
     public HomeFragment() {
@@ -63,9 +68,11 @@ public class HomeFragment extends Fragment {
 
         searchView = view.findViewById(R.id.searchView);
         mRecyclerView = view.findViewById(R.id.home_RecyclerView);
-
+        tvnameuser = view.findViewById(R.id.tvnameuser);
+        tvroleuser = view.findViewById(R.id.tvrole);
+        imgavata = view.findViewById(R.id.imgavata);
         searchView.clearFocus();
-
+        getDataUser();
         getData();
 
         mAdapter = new Home_adapter_recyclerview(getActivity());
@@ -114,6 +121,15 @@ public class HomeFragment extends Fragment {
         mArrayList.add(new SanPham("Anh cũng không biết nữa","Coffe",R.drawable.img_19,50000));
         mArrayList.add(new SanPham("Từ khi nào ta yêu nhauu ","Coffe",R.drawable.img_19,60000));
 
+    }
+    private void getDataUser(){
+        Bundle bundle = getActivity().getIntent().getExtras();
+        String name = bundle.getString("name");
+        String role = bundle.getString("role");
+        String avata = bundle.getString("avata");
+        tvnameuser.setText(name);
+        tvroleuser.setText(role);
+        Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgavata);
     }
 
 

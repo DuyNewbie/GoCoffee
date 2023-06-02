@@ -12,15 +12,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
-    /// Link Api : http://gocoffe.herokuapp.com/api/user
+    /// Link Api : http://gocoffe.herokuapp.com/api/user  https://gocoffe.herokuapp.com/api/user
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
-    ApiService apiService = new Retrofit.Builder().baseUrl("http://gocoffe.herokuapp.com/api/")
+    ApiService apiService = new Retrofit.Builder().baseUrl("https://gocoffe.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build().create(ApiService.class);
 
     @GET("user")
     Call<AllUser> getListUser();
+    @GET("user")
+    Call<AllUser> getListUser(@Query("tagged") String tags);
 }

@@ -1,11 +1,19 @@
 package com.example.gocoffee.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
+    @SerializedName("username")
     private String username;
+    @SerializedName("password")
     private String password;
+    @SerializedName("fullname")
     private String fullname;
+    @SerializedName("phone")
     private String phone;
+    @SerializedName("role")
     private String role;
+    @SerializedName("avata")
     private String avata;
 
     public User(String username, String password, String fullname, String phone, String role, String avata) {
