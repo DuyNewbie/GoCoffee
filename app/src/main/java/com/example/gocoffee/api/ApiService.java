@@ -1,5 +1,6 @@
 package com.example.gocoffee.api;
 
+import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ApiService {
     /// Link Api : http://gocoffe.herokuapp.com/api/user
@@ -20,5 +22,5 @@ public interface ApiService {
             .build().create(ApiService.class);
 
     @GET("user")
-    Call<List<User>> getListUser();
+    Call<AllUser> getListUser();
 }

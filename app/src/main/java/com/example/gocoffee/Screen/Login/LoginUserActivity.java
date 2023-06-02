@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.User;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class LoginUserActivity extends AppCompatActivity {
 
     private EditText edt_User, edt_Pass;
     private Button btnLogin;
-    private List<User> mUsers;
+    private List<AllUser> mUsers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class LoginUserActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_Login);
         mUsers = new ArrayList<>();
 
-        ArrayList<User> user = new ArrayList<>();
+        ArrayList<AllUser> user = new ArrayList<>();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,38 +47,37 @@ public class LoginUserActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Tài khoản và mật khẩu sai ", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                for (User user: mUsers) {
-                    if (Username.equals(user.getUsername()) && Password.equals(user.getPassword())){
-                        ////Đăng nhập thành công
-                        Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-//                        muser = user;
-//                        Bundle bundle = new Bundle();
-//                        bundle.putSerializable("object_user", (Serializable) muser);
-//                        intent.putExtras(bundle);
-                         Intent iHome = new Intent(getApplicationContext(), MainActivity.class);
-                         startActivity(iHome);
-                         finish();
-                    }
-                    else {
-
-                    }
-                }
+//                for (User user: mUsers) {
+//                    if (Username.equals(user.getUsername()) && Password.equals(user.getPassword())){
+//                        ////Đăng nhập thành công
+//                        Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+////                        muser = user;
+////                        Bundle bundle = new Bundle();
+////                        bundle.putSerializable("object_user", (Serializable) muser);
+////                        intent.putExtras(bundle);
+//                         Intent iHome = new Intent(getApplicationContext(), MainActivity.class);
+//                         startActivity(iHome);
+//                         finish();
+//                    }
+//                    else {
+//
+//                    }
+//                }
 //
             }
         });
         CallUser();
     }
     private void CallUser(){
-        ApiService.apiService.getListUser().enqueue(new Callback<List<User>>() {
+        ApiService.apiService.getListUser().enqueue(new Callback<AllUser>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                mUsers = response.body();
-                Log.i("Keytest", String.valueOf(response.body()));
+            public void onResponse(Call<AllUser> call, Response<AllUser> response) {
+                Toast.makeText(LoginUserActivity.this,response.body().toString(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Lỗi call api user", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<AllUser> call, Throwable t) {
+                Toast.makeText(LoginUserActivity.this, "Lỗi call api", Toast.LENGTH_SHORT).show();
             }
         });
     }

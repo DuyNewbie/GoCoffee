@@ -8,9 +8,6 @@ public class User {
     private String role;
     private String avata;
 
-    public User() {
-    }
-
     public User(String username, String password, String fullname, String phone, String role, String avata) {
         this.username = username;
         this.password = password;
