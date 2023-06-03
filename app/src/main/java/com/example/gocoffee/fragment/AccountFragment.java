@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.gocoffee.Screen.Login.LoginUserActivity;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.Screen.Setting.ChangeLangage;
@@ -30,6 +33,8 @@ import com.example.gocoffee.Screen.Setting.TermsofService;
  */
 public class AccountFragment extends Fragment {
     Context context;
+    private TextView tvnameaccount,tvroleaccount;
+    private ImageView imgacount;
 
     LinearLayout changeProfile,changePass,logoutTK,history,dieuKhoan,contact,changeLang,thoatapp;
     public AccountFragment() {
@@ -65,7 +70,10 @@ public class AccountFragment extends Fragment {
         contact = view.findViewById(R.id.btnContact);
         changeLang = view.findViewById(R.id.btnChangeLang);
         thoatapp = view.findViewById(R.id.btnThoat);
-
+        tvnameaccount = view.findViewById(R.id.tvnameaccount);
+        tvroleaccount = view.findViewById(R.id.tvroleaccount);
+        imgacount = view.findViewById(R.id.imgaccount);
+        getDataUser();
         Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
 
         changeProfile.setOnClickListener(new View.OnClickListener() {
@@ -124,5 +132,14 @@ public class AccountFragment extends Fragment {
                 System.exit(0);
             }
         });
+    }
+    private void getDataUser(){
+        Bundle bundle = getActivity().getIntent().getExtras();
+        String name = bundle.getString("name");
+        String role = bundle.getString("role");
+        String avata = bundle.getString("avata");
+        tvnameaccount.setText(name);
+        tvroleaccount.setText(role);
+        Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgacount);
     }
 }

@@ -15,6 +15,7 @@ import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.AllUser;
+import com.example.gocoffee.models.PostUser;
 import com.example.gocoffee.models.User;
 
 import java.io.Serializable;
@@ -26,6 +27,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
 public class LoginUserActivity extends AppCompatActivity {
 
@@ -41,23 +43,25 @@ public class LoginUserActivity extends AppCompatActivity {
         edt_User = findViewById(R.id.edusername);
         edt_Pass = findViewById(R.id.edpassword);
         btnLogin = findViewById(R.id.btn_Login);
+
+
+
         mUsers = new ArrayList<>();
 //        mUser =  new ArrayList<>();
         ArrayList<AllUser> user = new ArrayList<>();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Username = edt_User.getText().toString().trim();
-                String Password = edt_Pass.getText().toString().trim();
                 if (mUser == null || mUser.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Tài khoản và mật khẩu sai ", Toast.LENGTH_SHORT).show();
-                    return;
                 }
                 for (User user: mUser) {
+                    String Username = edt_User.getText().toString().trim();
+                    String Password = edt_Pass.getText().toString().trim();
                     if (Username.equals(user.getUsername()) && Password.equals(user.getPassword())){
                         ////Đăng nhập thành công
                         Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-
+                        PostUser(Username,Password);
                         Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
                         muser = user;
                         Bundle bundle = new Bundle();
@@ -75,6 +79,7 @@ public class LoginUserActivity extends AppCompatActivity {
             }
         });
         CallUser();
+
     }
     private void CallUser() {
         ApiService.apiService.getListUser().enqueue(new Callback<AllUser>() {
@@ -86,6 +91,19 @@ public class LoginUserActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<AllUser> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Lỗi call api", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void PostUser(String Username,String Password){
+        ApiService.apiService.postUser(Username,Password).enqueue(new Callback<PostUser>() {
+            @Override
+            public void onResponse(Call<PostUser> call, Response<PostUser> response) {
+                Toast.makeText(LoginUserActivity.this,"Send thành công", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<PostUser> call, Throwable t) {
+                Toast.makeText(LoginUserActivity.this, "Call thất bại", Toast.LENGTH_SHORT).show();
             }
         });
     }
