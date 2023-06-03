@@ -43,7 +43,7 @@
             android:layout_marginLeft="50dp"
             android:text=""
             android:hint="User"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:padding="10dp"
             android:textColorHint="#AEAEAE"
             android:layout_width="match_parent"
@@ -51,8 +51,8 @@
 
         <!-- ICON -->
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:padding="3dp"
             android:src="@drawable/ic_user" />
@@ -71,7 +71,7 @@
             android:layout_marginLeft="50dp"
             android:text=""
             android:hint="Name"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:padding="10dp"
             android:textColorHint="#AEAEAE"
             android:layout_width="match_parent"
@@ -79,8 +79,8 @@
 
         <!-- ICON -->
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:padding="3dp"
             android:src="@drawable/baseline_drive_file_rename_outline_24" />
@@ -95,8 +95,8 @@
 
         <!-- INPUT -->
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="320dp"
             android:src="@drawable/baseline_visibility_off_24"
@@ -106,7 +106,7 @@
             android:layout_marginLeft="50dp"
             android:text=""
             android:hint="Password"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:padding="10dp"
             android:textColorHint="#AEAEAE"
             android:layout_width="270dp"
@@ -114,8 +114,8 @@
 
         <!-- ICON -->
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/baseline_lock_24"
             android:padding="3dp"/>
@@ -130,8 +130,8 @@
 
         <!-- INPUT -->
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="320dp"
             android:src="@drawable/baseline_visibility_off_24"
@@ -140,7 +140,7 @@
             android:layout_marginLeft="50dp"
             android:text=""
             android:hint="RePassword"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:padding="10dp"
             android:textColorHint="#AEAEAE"
             android:layout_width="270dp"
@@ -148,8 +148,8 @@
 
         <!-- ICON -->
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/baseline_lock_24"
             android:padding="3dp"/>
@@ -161,6 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
+        android:textAllCaps="false"
         android:text="Register"
         android:textSize="20dp"
         android:background="@drawable/round_button"/>

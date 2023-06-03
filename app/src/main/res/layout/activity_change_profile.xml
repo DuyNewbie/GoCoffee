@@ -51,6 +51,7 @@
                 android:layout_toRightOf="@+id/username_icon"
                 android:text=""
                 android:hint="Username"
+                android:textColorHint="#AEAEAE"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
@@ -60,6 +61,7 @@
                 android:id="@+id/username_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:padding="3dp"
                 android:src="@drawable/img_16" />
@@ -81,6 +83,7 @@
                 android:layout_toRightOf="@+id/username_icon1"
                 android:text=""
                 android:hint="Username"
+                android:textColorHint="#AEAEAE"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
@@ -91,6 +94,7 @@
                 android:padding="3dp"
                 android:id="@+id/username_icon1"
                 android:src="@drawable/img_17"
+                android:layout_marginLeft="10dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp" />
 
@@ -110,6 +114,7 @@
                 android:layout_toRightOf="@+id/username_icon2"
                 android:text=""
                 android:hint="Username"
+                android:textColorHint="#AEAEAE"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
@@ -121,6 +126,7 @@
                 android:id="@+id/username_icon2"
                 android:src="@drawable/img_15"
                 android:layout_width="30dp"
+                android:layout_marginLeft="10dp"
                 android:layout_height="30dp" />
 
         </RelativeLayout>
