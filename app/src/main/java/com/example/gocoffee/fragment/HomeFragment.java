@@ -114,12 +114,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void getData() {
-        mArrayList.add(new SanPham("Trời hôm nay âm u","Coffe",R.drawable.img_19,20000));
-        mArrayList.add(new SanPham("Kiểu thiếu emm","Coffe",R.drawable.img_19,10000));
-        mArrayList.add(new SanPham("Sóng bắt nguồn từ gió","Coffe",R.drawable.img_19,30000));
-        mArrayList.add(new SanPham("Gió bắt nguồn từ đâu","Coffe",R.drawable.img_19,40000));
-        mArrayList.add(new SanPham("Anh cũng không biết nữa","Coffe",R.drawable.img_19,50000));
-        mArrayList.add(new SanPham("Từ khi nào ta yêu nhauu ","Coffe",R.drawable.img_19,60000));
+        mArrayList.add(new SanPham("Cofee đen đá khồn đường","Coffe",R.drawable.img_19,20000));
+        mArrayList.add(new SanPham("Cofee đen đá có đường","Coffe",R.drawable.img_19,10000));
+        mArrayList.add(new SanPham("Cofee sữa","Coffe",R.drawable.img_19,30000));
+        mArrayList.add(new SanPham("Bạc xỉu","Coffe",R.drawable.img_19,40000));
+        mArrayList.add(new SanPham("Capuchino","Coffe",R.drawable.img_19,50000));
+        mArrayList.add(new SanPham("Coffe code ","Coffe",R.drawable.img_19,60000));
 
     }
     private void getDataUser(){

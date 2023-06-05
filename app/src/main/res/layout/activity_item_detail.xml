@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
                         android:padding="16dp"
-                        android:text="Không phải cơn mưa nào cũng buồn. Tại lòng mình buồn đổ lỗi cho mưa."
+                        android:text="Coffee đen đá không đường"
                         android:textSize="30sp"
                         android:textStyle="bold"/>
 
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/itemDetail_price"
                     android:textColor="#D6D6D6"
-                    android:text="Không phải vì cuộc sống này lạnh lẽo khiến chúng ta cô đơn mỗi ngày, mà có lẽ vì chúng ta bắt đầu cảm thấy thích chơi với máy tính hơn là với một con người..."
+                    android:text="Coffe nguyên Tây Nguyên, hương vị đậm đà."
                     />
                 <LinearLayout
                     android:id="@+id/tangso"

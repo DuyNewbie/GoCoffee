@@ -101,7 +101,7 @@
         android:textColor="#362C35"/>
 
     <TextView
-        android:id="@+id/login_tv"
+        android:id="@+id/login_tv_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

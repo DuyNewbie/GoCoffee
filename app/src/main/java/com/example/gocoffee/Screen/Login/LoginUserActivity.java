@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gocoffee.R;
@@ -31,6 +32,7 @@ import retrofit2.http.Field;
 
 public class LoginUserActivity extends AppCompatActivity {
 
+    private TextView tv_signUp;
     private EditText edt_User, edt_Pass;
     private Button btnLogin;
     private List<AllUser> mUsers;
@@ -43,6 +45,7 @@ public class LoginUserActivity extends AppCompatActivity {
         edt_User = findViewById(R.id.edusername);
         edt_Pass = findViewById(R.id.edpassword);
         btnLogin = findViewById(R.id.btn_Login);
+        tv_signUp = findViewById(R.id.login_tv_signUp);
 
 
 
@@ -78,6 +81,15 @@ public class LoginUserActivity extends AppCompatActivity {
 
             }
         });
+
+        tv_signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginUserActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
         CallUser();
 
     }
