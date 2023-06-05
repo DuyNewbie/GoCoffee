@@ -52,6 +52,7 @@
                 android:src="@drawable/baseline_visibility_off_24"
                 />
             <EditText
+                android:background="@android:color/transparent"
                 android:id="@+id/change_password"
                 android:layout_marginLeft="50dp"
                 android:text=""

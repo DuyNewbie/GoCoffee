@@ -1,9 +1,11 @@
 package com.example.gocoffee.Screen.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,12 +34,15 @@ import retrofit2.http.Field;
 
 public class LoginUserActivity extends AppCompatActivity {
 
-    private TextView tv_signUp;
+    private TextView tv_signUp, error_username, error_password;
     private EditText edt_User, edt_Pass;
     private Button btnLogin;
     private List<AllUser> mUsers;
     private List<User> mUser;
     private User muser;
+
+    String msg = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +51,8 @@ public class LoginUserActivity extends AppCompatActivity {
         edt_Pass = findViewById(R.id.edpassword);
         btnLogin = findViewById(R.id.btn_Login);
         tv_signUp = findViewById(R.id.login_tv_signUp);
-
+        error_username = findViewById(R.id.login_error_username);
+        error_password = findViewById(R.id.login_error_password);
 
 
         mUsers = new ArrayList<>();
@@ -55,37 +61,70 @@ public class LoginUserActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUser == null || mUser.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Tài khoản và mật khẩu sai ", Toast.LENGTH_SHORT).show();
-                }
-                for (User user: mUser) {
-                    String Username = edt_User.getText().toString().trim();
-                    String Password = edt_Pass.getText().toString().trim();
-                    if (Username.equals(user.getUsername()) && Password.equals(user.getPassword())){
-                        ////Đăng nhập thành công
-                        Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                        PostUser(Username,Password);
-                        Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
-                        muser = user;
-                        Bundle bundle = new Bundle();
-                        bundle.putString("name", user.getFullname());
-                        bundle.putString("role", user.getRole());
-                        bundle.putString("avata", user.getAvata());
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    }
-                    else {
+                String Username = edt_User.getText().toString().trim();
+                String Password = edt_Pass.getText().toString();
+                boolean validateResult = validateUser(Username, Password);
 
+                if (validateResult == true) {
+//                    if (mUser == null || mUser.isEmpty()){
+//                        Toast.makeText(getApplicationContext(), "Chưa có user", Toast.LENGTH_SHORT).show();
+//                    }
+
+                    for (User user : mUser) {
+
+                        if (!Username.equals(user.getUsername())) {
+                            error_username.setText("Tài khoản không tồn tại!");
+                            edt_User.setBackground(getDrawable(R.drawable.bg_error));
+
+                        } else {
+                            if (!Password.equals(user.getPassword())) {
+                                error_password.setText("Sai mật khẩu");
+                                edt_Pass.setBackground(getDrawable(R.drawable.bg_error));
+                                return;
+                            } else {
+                                clearError();
+                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                PostUser(Username,Password);
+                                Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
+                                muser = user;
+                                Bundle bundle = new Bundle();
+                                bundle.putString("name", user.getFullname());
+                                bundle.putString("role", user.getRole());
+                                bundle.putString("avata", user.getAvata());
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                                return;
+                            }
+                        }
+
+//                        if (Username.equals(user.getUsername()) && Password.equals(user.getPassword())){
+//                            ////Đăng nhập thành công
+//                            Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+//                            PostUser(Username,Password);
+//                            Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
+//                            muser = user;
+//                            Bundle bundle = new Bundle();
+//                            bundle.putString("name", user.getFullname());
+//                            bundle.putString("role", user.getRole());
+//                            bundle.putString("avata", user.getAvata());
+//                            intent.putExtras(bundle);
+//                            startActivity(intent);
+//                        }
+//                        else {
+//
+//                        }
                     }
                 }
+
 
             }
         });
 
+
         tv_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginUserActivity.this,SignUpActivity.class);
+                Intent intent = new Intent(LoginUserActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -93,6 +132,33 @@ public class LoginUserActivity extends AppCompatActivity {
         CallUser();
 
     }
+
+    private boolean validateUser(String username, String password) {
+        if (username.isEmpty()) {
+//            setUsernameError('Username field cannot be empty');
+            error_username.setText("Tài khoản không được để trống");
+            edt_User.setBackground(getDrawable(R.drawable.bg_error));
+
+            return false;
+        } else if (password.isEmpty()) {
+            error_username.setText("");
+            error_password.setText("Mật khẩu không được để trống");
+            edt_User.setBackground(getDrawable(R.drawable.textlogin));
+            edt_Pass.setBackground(getDrawable(R.drawable.bg_error));
+
+            return false;
+        }
+        clearError();
+        return true;
+    }
+
+    private void clearError(){
+        error_password.setText("");
+        error_username.setText("");
+        edt_User.setBackground(getDrawable(R.drawable.textlogin));
+        edt_Pass.setBackground(getDrawable(R.drawable.textlogin));
+    }
+
     private void CallUser() {
         ApiService.apiService.getListUser().enqueue(new Callback<AllUser>() {
             @Override
@@ -106,11 +172,12 @@ public class LoginUserActivity extends AppCompatActivity {
             }
         });
     }
-    private void PostUser(String Username,String Password){
-        ApiService.apiService.postUser(Username,Password).enqueue(new Callback<PostUser>() {
+
+    private void PostUser(String Username, String Password) {
+        ApiService.apiService.postUser(Username, Password).enqueue(new Callback<PostUser>() {
             @Override
             public void onResponse(Call<PostUser> call, Response<PostUser> response) {
-                Toast.makeText(LoginUserActivity.this,"Send thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginUserActivity.this, "Send thành công", Toast.LENGTH_SHORT).show();
             }
 
             @Override
