@@ -41,7 +41,7 @@
                 android:id="@+id/username_input"
                 android:layout_marginLeft="-10dp"
                 android:layout_toRightOf="@+id/username_icon"
-                android:hint="Search here ..."
+                android:hint="Tìm kiếm lịch sử ..."
                 android:textColorHint="#79756A"
                 android:layout_marginStart="10dp"
                 android:padding="10dp"

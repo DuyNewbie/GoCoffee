@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
-        android:hint="User"
+        android:hint="Tên đăng nhập"
         android:textSize="15dp"
         android:textColorHint="@color/c_hintInput"
         android:layout_marginStart="16dp"
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:textColorHint="@color/c_hintInput"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -56,7 +56,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot password ?"
+        android:text="Quên mật khẩu ?"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:layout_gravity="right"
@@ -82,7 +82,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:textSize="15dp"
-            android:text="Remember Password"
+            android:text="Nhớ mật khẩu ?"
             android:textColor="#FFFFFF"
             />
     </LinearLayout>
@@ -96,7 +96,7 @@
         android:layout_marginTop="64dp"
         android:background="@drawable/bg_btn"
         android:textSize="20dp"
-        android:text="Login"
+        android:text="Đăng Nhập"
         android:textAllCaps="false"
         android:textColor="#362C35"/>
 
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Sign Up"
+        android:text="Đăng Ký"
         android:textSize="20dp"
         android:textColor="#EFE4C8"
         android:layout_gravity="center_horizontal" />

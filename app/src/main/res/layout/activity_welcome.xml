@@ -14,11 +14,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
-            android:text="Welcome to"
+            android:text="Chào mừng đến với"
             android:textColor="#ffff"
             android:textSize="24dp" />
 
