@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +44,10 @@ public class LoginUserActivity extends AppCompatActivity {
     private User muser;
 
     String msg = "";
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private CheckBox saveLoginCheckBox;
+    private Boolean saveLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +59,20 @@ public class LoginUserActivity extends AppCompatActivity {
         tv_signUp = findViewById(R.id.login_tv_signUp);
         error_username = findViewById(R.id.login_error_username);
         error_password = findViewById(R.id.login_error_password);
+        saveLoginCheckBox = findViewById(R.id.login_chk);
 
 
         mUsers = new ArrayList<>();
 //        mUser =  new ArrayList<>();
         ArrayList<AllUser> user = new ArrayList<>();
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            edt_User.setText(loginPreferences.getString("username", ""));
+            edt_Pass.setText(loginPreferences.getString("password", ""));
+            saveLoginCheckBox.setChecked(true);
+        }
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
