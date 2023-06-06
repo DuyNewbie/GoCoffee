@@ -32,8 +32,7 @@ public interface ApiService {
     Call<AllUser> getListUser();
     @GET("user")
     Call<AllUser> getListUser(@Query("tagged") String tags);
-    @FormUrlEncoded
-    @POST("login-app")
-    Call<PostUser> postUser(@Field("UserName") String UserName, @Field("PassWord") String PassWord);
+    @GET("login-app")
+    Call<MessegerUser> postUser(@Query("UserName") String UserName, @Query("PassWord") String PassWord);
 
 }

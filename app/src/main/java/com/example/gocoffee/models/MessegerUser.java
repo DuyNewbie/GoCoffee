@@ -1,13 +1,12 @@
 package com.example.gocoffee.models;
 
-public class MessegerUser {
-    private String msg;
-    private String checkLogin;
+import com.google.gson.annotations.SerializedName;
 
-    public MessegerUser(String msg, String checkLogin) {
-        this.msg = msg;
-        this.checkLogin = checkLogin;
-    }
+public class MessegerUser {
+    @SerializedName("msg")
+    private String msg;
+    @SerializedName("checkLogin")
+    private Boolean checkLogin;
 
     public String getMsg() {
         return msg;
@@ -17,11 +16,16 @@ public class MessegerUser {
         this.msg = msg;
     }
 
-    public String getCheckLogin() {
+    public Boolean getCheckLogin() {
         return checkLogin;
     }
 
-    public void setCheckLogin(String checkLogin) {
+    public void setCheckLogin(Boolean checkLogin) {
+        this.checkLogin = checkLogin;
+    }
+
+    public MessegerUser(String msg, Boolean checkLogin) {
+        this.msg = msg;
         this.checkLogin = checkLogin;
     }
 }

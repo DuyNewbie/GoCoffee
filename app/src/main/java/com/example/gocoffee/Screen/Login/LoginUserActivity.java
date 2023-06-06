@@ -20,8 +20,10 @@ import android.widget.Toast;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.api.RetrofitClient;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.AllUser;
+import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
 import com.example.gocoffee.models.User;
 
@@ -34,7 +36,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 import retrofit2.http.Field;
+import retrofit2.http.GET;
 
 public class LoginUserActivity extends AppCompatActivity {
 
@@ -44,6 +48,7 @@ public class LoginUserActivity extends AppCompatActivity {
     private List<AllUser> mUsers;
     private List<User> mUser;
     private User muser;
+    private Boolean mess;
 
     String msg = "";
     private SharedPreferences loginPreferences;
@@ -116,7 +121,7 @@ public class LoginUserActivity extends AppCompatActivity {
                                     loginPrefsEditor.clear();
                                     loginPrefsEditor.commit();
                                 }
-                                PostUser(Username,Password);
+
                                 Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
                                 muser = user;
                                 Bundle bundle = new Bundle();
@@ -126,7 +131,7 @@ public class LoginUserActivity extends AppCompatActivity {
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                                 LoginUserActivity.this.finish();
-                                return;
+
                             }
                         }
 
@@ -163,7 +168,7 @@ public class LoginUserActivity extends AppCompatActivity {
         });
 
         CallUser();
-
+        PostUser();
     }
 
     private boolean validateUser(String username, String password) {
@@ -206,16 +211,33 @@ public class LoginUserActivity extends AppCompatActivity {
         });
     }
 
-    private void PostUser(String Username, String Password) {
-        ApiService.apiService.postUser(Username, Password).enqueue(new Callback<PostUser>() {
+    private void PostUser() {
+
+//        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+//        Call<MessegerUser> call = apiService.postUser("cuongtest","a");
+//        call.enqueue(new Callback<MessegerUser>() {
+//            @Override
+//            public void onResponse(Call<MessegerUser> call, Response<MessegerUser> response) {
+//                String mess = response.body().getMsg().toString();
+//                Toast.makeText(getApplicationContext(),mess,Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<MessegerUser> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(),"Đăng nhập không thành công",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        ApiService.apiService.postUser("cuongtest","a").enqueue(new Callback<MessegerUser>() {
             @Override
-            public void onResponse(Call<PostUser> call, Response<PostUser> response) {
-                Toast.makeText(LoginUserActivity.this, "Send thành công", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<MessegerUser> call, Response<MessegerUser> response) {
+                Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_SHORT).show();
+                mess= response.body().getCheckLogin();
             }
 
             @Override
-            public void onFailure(Call<PostUser> call, Throwable t) {
-                Toast.makeText(LoginUserActivity.this, "Call thất bại", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<MessegerUser> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"call khoong thanh cong",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
