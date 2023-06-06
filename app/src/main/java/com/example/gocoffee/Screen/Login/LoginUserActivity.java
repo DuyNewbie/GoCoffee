@@ -100,7 +100,7 @@ public class LoginUserActivity extends AppCompatActivity {
 
                     for (User user : mUser) {
 
-                        if (!Username.equals(user.getUsername())) {
+                        if (!Username.equals(user.getUsername()) || mess == false) {
                             error_username.setText("Tài khoản không tồn tại!");
                             edt_User.setBackground(getDrawable(R.drawable.bg_error));
 
