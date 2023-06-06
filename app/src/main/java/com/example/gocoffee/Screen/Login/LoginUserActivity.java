@@ -3,12 +3,14 @@ package com.example.gocoffee.Screen.Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -79,6 +81,12 @@ public class LoginUserActivity extends AppCompatActivity {
                 String Username = edt_User.getText().toString().trim();
                 String Password = edt_Pass.getText().toString();
                 boolean validateResult = validateUser(Username, Password);
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(edt_User.getWindowToken(), 0);
+
+
+
+
 
                 if (validateResult == true) {
 //                    if (mUser == null || mUser.isEmpty()){
@@ -99,6 +107,15 @@ public class LoginUserActivity extends AppCompatActivity {
                             } else {
                                 clearError();
                                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                if (saveLoginCheckBox.isChecked()) {
+                                    loginPrefsEditor.putBoolean("saveLogin", true);
+                                    loginPrefsEditor.putString("username", Username);
+                                    loginPrefsEditor.putString("password", Password);
+                                    loginPrefsEditor.commit();
+                                } else {
+                                    loginPrefsEditor.clear();
+                                    loginPrefsEditor.commit();
+                                }
                                 PostUser(Username,Password);
                                 Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
                                 muser = user;
@@ -108,6 +125,7 @@ public class LoginUserActivity extends AppCompatActivity {
                                 bundle.putString("avata", user.getAvata());
                                 intent.putExtras(bundle);
                                 startActivity(intent);
+                                LoginUserActivity.this.finish();
                                 return;
                             }
                         }
