@@ -1,8 +1,10 @@
 package com.example.gocoffee.api;
 
+import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
+import com.example.gocoffee.models.SanPham;
 import com.example.gocoffee.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,5 +36,10 @@ public interface ApiService {
     Call<AllUser> getListUser(@Query("tagged") String tags);
     @GET("login-app")
     Call<MessegerUser> postUser(@Query("UserName") String UserName, @Query("PassWord") String PassWord);
+
+
+
+    @GET("product")
+    Call<AllSanPham> getListSanPham();
 
 }

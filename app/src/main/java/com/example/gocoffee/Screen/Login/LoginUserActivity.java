@@ -206,7 +206,7 @@ public class LoginUserActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AllUser> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Lỗi call api", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Lỗi call api", Toast.LENGTH_SHORT).show();
             }
         });
     }

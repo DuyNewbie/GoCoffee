@@ -11,16 +11,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.Home.ItemDetail;
 import com.example.gocoffee.models.SanPham;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter_recyclerview.UserViewHolder> {
 
     private Context mContext;
-    private ArrayList<SanPham> mArrayList;
+    private List<SanPham> mArrayList;
+
+
 
     public Home_adapter_recyclerview(Context mContext) {
         this.mContext = mContext;
@@ -41,9 +45,10 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
             return;
         }
 
-        holder.home_Item_avatar.setImageResource(object.getImage());
+            Glide.with(mContext).load("https://gocoffe.herokuapp.com" + object.getImage()).error(R.drawable.img_4).into(holder.home_Item_avatar);
+
         holder.home_Item_name.setText(object.getName());
-        holder.home_Item_loai.setText("Loại: " + object.getCategory());
+        holder.home_Item_loai.setText("Loại: " + object.getId_category());
         holder.home_Item_price.setText(object.getPrice()+" VNĐ");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +62,7 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
 
     }
 
-    public void setData(ArrayList<SanPham> mArrayList){
+    public void setData(List<SanPham> mArrayList){
         this.mArrayList = mArrayList;
         notifyDataSetChanged();
     }
