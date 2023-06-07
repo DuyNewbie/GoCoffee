@@ -88,7 +88,7 @@ public class LoginUserActivity extends AppCompatActivity {
                 boolean validateResult = validateUser(Username, Password);
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(edt_User.getWindowToken(), 0);
-
+                PostUser(Username,Password);
 
 
 
@@ -100,7 +100,7 @@ public class LoginUserActivity extends AppCompatActivity {
 
                     for (User user : mUser) {
 
-                        if (!Username.equals(user.getUsername()) || mess == false) {
+                        if (!Username.equals(user.getUsername())) {
                             error_username.setText("Tài khoản không tồn tại!");
                             edt_User.setBackground(getDrawable(R.drawable.bg_error));
 
@@ -168,7 +168,7 @@ public class LoginUserActivity extends AppCompatActivity {
         });
 
         CallUser();
-        PostUser();
+
     }
 
     private boolean validateUser(String username, String password) {
@@ -211,7 +211,7 @@ public class LoginUserActivity extends AppCompatActivity {
         });
     }
 
-    private void PostUser() {
+    private void PostUser(String Username , String Password) {
 
 //        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
 //        Call<MessegerUser> call = apiService.postUser("cuongtest","a");
@@ -227,7 +227,7 @@ public class LoginUserActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(),"Đăng nhập không thành công",Toast.LENGTH_SHORT).show();
 //            }
 //        });
-        ApiService.apiService.postUser("cuongtest","a").enqueue(new Callback<MessegerUser>() {
+        ApiService.apiService.postUser(Username,Password).enqueue(new Callback<MessegerUser>() {
             @Override
             public void onResponse(Call<MessegerUser> call, Response<MessegerUser> response) {
                 Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_SHORT).show();
