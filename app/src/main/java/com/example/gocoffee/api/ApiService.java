@@ -2,6 +2,7 @@ package com.example.gocoffee.api;
 
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.AllUser;
+import com.example.gocoffee.models.MessegerAccount;
 import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
 import com.example.gocoffee.models.SanPham;
@@ -36,7 +37,13 @@ public interface ApiService {
     Call<AllUser> getListUser(@Query("tagged") String tags);
     @GET("login-app")
     Call<MessegerUser> postUser(@Query("UserName") String UserName, @Query("PassWord") String PassWord);
-
+    @POST("create-account")
+    Call<MessegerAccount> postProduct(@Query("UserName") String UserName,
+                                      @Query("PassWord") String PassWord,
+                                      @Query("FullName") String FullName,
+                                      @Query("Phone") String Phone,
+                                      @Query("Email") String Email,
+                                      @Query("Address") String Address);
 
 
     @GET("product")
