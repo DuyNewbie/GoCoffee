@@ -41,9 +41,9 @@ public interface ApiService {
     Call<MessegerAccount> postProduct(@Query("UserName") String UserName,
                                       @Query("PassWord") String PassWord,
                                       @Query("FullName") String FullName,
-                                      @Query("Phone") String Phone,
+                                      @Query("Address") String Address,
                                       @Query("Email") String Email,
-                                      @Query("Address") String Address);
+                                      @Query("Phone") String Phone);
 
 
     @GET("product")

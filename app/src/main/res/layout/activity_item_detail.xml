@@ -23,7 +23,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 android:background="#5E565D">
                 <ImageView
-                    android:id="@+id/itemDetail_banner"
+                    android:id="@+id/imgitemDetail_banner"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:src="@drawable/img_3"
@@ -65,7 +65,7 @@
                     <TextView
                         android:gravity="center_vertical"
                         android:textColor="#D6D6D6"
-                        android:id="@+id/itemDetail_name"
+                        android:id="@+id/tvitemDetail_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
@@ -75,7 +75,7 @@
                         android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/itemDetail_price"
+                        android:id="@+id/tvitemDetail_price"
                         android:layout_margin="16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                     android:layout_marginRight="24dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/itemDetail_price"
+                    android:layout_below="@id/tvitemDetail_price"
                     android:textColor="#D6D6D6"
                     android:text="Coffe nguyên Tây Nguyên, hương vị đậm đà."
                     />

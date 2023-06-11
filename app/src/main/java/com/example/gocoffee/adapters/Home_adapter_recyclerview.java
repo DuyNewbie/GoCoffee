@@ -2,6 +2,7 @@ package com.example.gocoffee.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +51,19 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
         holder.home_Item_name.setText(object.getName());
         holder.home_Item_loai.setText("Loại: " + object.getId_category());
         holder.home_Item_price.setText(object.getPrice()+" VNĐ");
+        String detail = object.getDetail();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ItemDetail.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("object_name", object.getName());
+                bundle.putString("object_img", object.getImage());
+                bundle.putString("object_category", object.getId_category());
+                bundle.putString("object_price", object.getPrice());
+                bundle.putString("object_detail", detail);
+                intent.putExtras(bundle);
                 mContext.startActivity(intent);
 
             }
