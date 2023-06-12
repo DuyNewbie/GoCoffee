@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.gocoffee.R;
+import com.example.gocoffee.Screen.MainActivity;
 
 public class Wecome2Activity extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class Wecome2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_wecome2);
 
         imgNext = findViewById(R.id.ic_wecome2);
-        Intent intent = new Intent(Wecome2Activity.this , LoginUserActivity.class);
+        Intent intent = new Intent(Wecome2Activity.this , MainActivity.class);
 
         imgNext.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -73,7 +73,7 @@ public class AccountFragment extends Fragment {
         tvnameaccount = view.findViewById(R.id.tvnameaccount);
         tvroleaccount = view.findViewById(R.id.tvroleaccount);
         imgacount = view.findViewById(R.id.imgaccount);
-        getDataUser();
+//        getDataUser();
         Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
 
         changeProfile.setOnClickListener(new View.OnClickListener() {

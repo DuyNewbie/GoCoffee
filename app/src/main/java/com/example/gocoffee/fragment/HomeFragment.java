@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
         tvroleuser = view.findViewById(R.id.tvrole);
         imgavata = view.findViewById(R.id.imgavata);
         searchView.clearFocus();
-        getDataUser();
+//        getDataUser();
         getData();
 
 
