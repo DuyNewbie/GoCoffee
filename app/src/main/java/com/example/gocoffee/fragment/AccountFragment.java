@@ -25,6 +25,7 @@ import com.example.gocoffee.Screen.Setting.Contact;
 import com.example.gocoffee.Screen.Setting.PurchaseHistory;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.Setting.TermsofService;
+import com.example.gocoffee.data_local.DataLocalManager;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +36,7 @@ public class AccountFragment extends Fragment {
     Context context;
     private TextView tvnameaccount,tvroleaccount;
     private ImageView imgacount;
+    private LinearLayout ttDangNhap;
 
     LinearLayout changeProfile,changePass,logoutTK,history,dieuKhoan,contact,changeLang,thoatapp;
     public AccountFragment() {
@@ -62,6 +64,7 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ttDangNhap = view.findViewById(R.id.ttDangNhap);
         changeProfile = view.findViewById(R.id.changeProfile);
         changePass = view.findViewById(R.id.btnchangepass);
         logoutTK = view.findViewById(R.id.btnlogoutTK);
@@ -73,6 +76,13 @@ public class AccountFragment extends Fragment {
         tvnameaccount = view.findViewById(R.id.tvnameaccount);
         tvroleaccount = view.findViewById(R.id.tvroleaccount);
         imgacount = view.findViewById(R.id.imgaccount);
+        if (DataLocalManager.layTrangThaiDangNhap()){
+            ttDangNhap.setVisibility(View.GONE);
+            getDataUser();
+        }
+        else{
+            ttDangNhap.setVisibility(View.INVISIBLE);
+        }
 //        getDataUser();
         Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
 
@@ -123,6 +133,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(iLogout);
+                DataLocalManager.setTrangThaiDangNhap(false);
                 getActivity().finish();
             }
         });

@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.Home_adapter_recyclerview;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.data_local.DataLocalManager;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.SanPham;
 import com.example.gocoffee.models.User;
@@ -84,6 +85,11 @@ public class HomeFragment extends Fragment {
         imgavata = view.findViewById(R.id.imgavata);
         searchView.clearFocus();
 //        getDataUser();
+//        if (DataLocalManager.layTrangThaiDangNhap() == true){
+//            getDataUser();
+//        }
+//        else{
+//        }
         getData();
 
 

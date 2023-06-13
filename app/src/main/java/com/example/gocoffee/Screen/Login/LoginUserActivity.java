@@ -21,6 +21,7 @@ import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.api.RetrofitClient;
+import com.example.gocoffee.data_local.DataLocalManager;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.MessegerUser;
@@ -125,6 +126,7 @@ public class LoginUserActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
                                 muser = user;
                                 Bundle bundle = new Bundle();
+                                DataLocalManager.setTrangThaiDangNhap(true);
                                 bundle.putString("name", user.getFullname());
                                 bundle.putString("role", user.getRole());
                                 bundle.putString("avata", user.getAvata());
