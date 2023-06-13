@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Debug;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -126,7 +127,14 @@ public class LoginUserActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginUserActivity.this, MainActivity.class);
                                 muser = user;
                                 Bundle bundle = new Bundle();
-                                DataLocalManager.setTrangThaiDangNhap(true);
+
+
+                                SharedPreferences prefs = getSharedPreferences("share",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean("IsLogin",true);
+                                editor.apply();
+
+
                                 bundle.putString("name", user.getFullname());
                                 bundle.putString("role", user.getRole());
                                 bundle.putString("avata", user.getAvata());

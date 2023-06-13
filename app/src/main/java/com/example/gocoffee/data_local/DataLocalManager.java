@@ -3,14 +3,14 @@ package com.example.gocoffee.data_local;
 import android.content.Context;
 
 public class DataLocalManager {
-    private static final String PREF_FIRST_INSTALL = "PREF_FIRST_INSTALL";
-    private static final String TRANG_THAI = "TRANG_THAI";
-    private static final String USER_NAME = "USER_NAME";
-    private static final String PASS = "PASS";
+    public static final String PREF_FIRST_INSTALL = "PREF_FIRST_INSTALL";
+    public static final String TRANG_THAI = "TRANG_THAI";
+    public static final String USER_NAME = "USER_NAME";
+    public static final String PASS = "PASS";
 
 
-    private static DataLocalManager instance;
-    private MySharePreferences mySharePreferences;
+    public static DataLocalManager instance;
+    public MySharePreferences mySharePreferences;
 
     public static void init(Context context){
         instance = new DataLocalManager();
@@ -56,5 +56,4 @@ public class DataLocalManager {
     public static String getMatKhau(){
         return DataLocalManager.getInstance().mySharePreferences.getUser(PASS);
     }
-
 }

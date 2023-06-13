@@ -56,6 +56,64 @@
             android:layout_marginLeft="30dp"/>
         </LinearLayout>
     </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ttDoneDangNhap"
+            android:orientation="vertical">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hồ sơ cá nhân"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="Hãy đăng nhập để bắt đầu mua sắm "/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="40dp"
+            android:id="@+id/btnDangNhap"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/background_btn_dangnhap"
+            android:elevation="3dp"
+            android:text="Đăng nhập"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Bạn chưa có tài khoản?"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnDangKi"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng ký"/>
+        </LinearLayout>
+        </LinearLayout>
    <LinearLayout
        android:id="@+id/ttDangNhap"
        android:layout_width="match_parent"
@@ -233,7 +291,7 @@
                android:layout_width="match_parent"
                android:layout_height="1dp" />
        </LinearLayout>
-   </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -400,5 +458,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp" />
         </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>

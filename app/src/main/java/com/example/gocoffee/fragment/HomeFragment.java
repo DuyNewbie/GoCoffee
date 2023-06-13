@@ -1,5 +1,7 @@
 package com.example.gocoffee.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,12 +87,14 @@ public class HomeFragment extends Fragment {
         tvroleuser = view.findViewById(R.id.tvrole);
         imgavata = view.findViewById(R.id.imgavata);
         searchView.clearFocus();
-//        getDataUser();
-//        if (DataLocalManager.layTrangThaiDangNhap() == true){
+//        if (DataLocalManager.layTrangThaiDangNhap()){
 //            getDataUser();
 //        }
-//        else{
-//        }
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+        boolean isLogin = sharedPreferences.getBoolean("IsLogin",false);
+        if (isLogin){
+            getDataUser();
+        }
         getData();
 
 

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class MySharePreferences {
-    private static final String MY_SF = "MY_SF";
-    private Context mContext;
+    public static final String MY_SF = "MY_SF";
+    public Context mContext;
 
     public MySharePreferences(Context context){
         this.mContext = context;

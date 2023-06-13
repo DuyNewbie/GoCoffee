@@ -2,6 +2,7 @@ package com.example.gocoffee.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,9 +36,10 @@ import com.example.gocoffee.data_local.DataLocalManager;
  */
 public class AccountFragment extends Fragment {
     Context context;
-    private TextView tvnameaccount,tvroleaccount;
+    private TextView tvnameaccount,tvroleaccount,btnDangKi;
     private ImageView imgacount;
-    private LinearLayout ttDangNhap;
+    private LinearLayout ttDangNhap,ttDoneDangNhap;
+    private Button btnDangNhap;
 
     LinearLayout changeProfile,changePass,logoutTK,history,dieuKhoan,contact,changeLang,thoatapp;
     public AccountFragment() {
@@ -64,7 +67,10 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        btnDangNhap = view.findViewById(R.id.btnDangNhap);
+        btnDangKi = view.findViewById(R.id.btnDangKi);
         ttDangNhap = view.findViewById(R.id.ttDangNhap);
+        ttDoneDangNhap = view.findViewById(R.id.ttDoneDangNhap);
         changeProfile = view.findViewById(R.id.changeProfile);
         changePass = view.findViewById(R.id.btnchangepass);
         logoutTK = view.findViewById(R.id.btnlogoutTK);
@@ -76,15 +82,33 @@ public class AccountFragment extends Fragment {
         tvnameaccount = view.findViewById(R.id.tvnameaccount);
         tvroleaccount = view.findViewById(R.id.tvroleaccount);
         imgacount = view.findViewById(R.id.imgaccount);
-        if (DataLocalManager.layTrangThaiDangNhap()){
-            ttDangNhap.setVisibility(View.GONE);
+//        if (DataLocalManager.layTrangThaiDangNhap()){
+//            ttDangNhap.setVisibility(View.GONE);
+//            getDataUser();
+//        }
+//        else{
+//            ttDangNhap.setVisibility(View.INVISIBLE);
+//        }
+//        getDataUser();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+        boolean isLogin = sharedPreferences.getBoolean("IsLogin",false);
+        if (isLogin){
+            ttDangNhap.setVisibility(View.VISIBLE);
+            ttDoneDangNhap.setVisibility(View.GONE);
             getDataUser();
         }
-        else{
-            ttDangNhap.setVisibility(View.INVISIBLE);
+        else {
+            ttDangNhap.setVisibility(View.GONE);
+            ttDoneDangNhap.setVisibility(View.VISIBLE);
         }
-//        getDataUser();
+
         Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
+        btnDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), LoginUserActivity.class));
+            }
+        });
 
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +157,6 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(iLogout);
-                DataLocalManager.setTrangThaiDangNhap(false);
                 getActivity().finish();
             }
         });
