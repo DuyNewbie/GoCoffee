@@ -132,6 +132,9 @@ public class LoginUserActivity extends AppCompatActivity {
                                 SharedPreferences prefs = getSharedPreferences("share",MODE_PRIVATE);
                                 SharedPreferences.Editor editor = prefs.edit();
                                 editor.putBoolean("IsLogin",true);
+                                editor.putString("name",user.getFullname());
+                                editor.putString("role",user.getRole());
+                                editor.putString("avata",user.getAvata());
                                 editor.apply();
 
 

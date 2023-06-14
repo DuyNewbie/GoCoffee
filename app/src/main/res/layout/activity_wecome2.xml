@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#201520"
+    android:id="@+id/idmanchao2"
     android:orientation="vertical"
     tools:context=".Screen.Login.WelcomeActivity">
 

@@ -3,6 +3,7 @@ package com.example.gocoffee.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.Screen.Login.LoginUserActivity;
+import com.example.gocoffee.Screen.Login.SignUpActivity;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.Screen.Setting.ChangeLangage;
 import com.example.gocoffee.Screen.Setting.ChangePass;
@@ -90,6 +92,9 @@ public class AccountFragment extends Fragment {
 //            ttDangNhap.setVisibility(View.INVISIBLE);
 //        }
 //        getDataUser();
+
+
+        /// xử lý trạng thái đăng nhập
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
         boolean isLogin = sharedPreferences.getBoolean("IsLogin",false);
         if (isLogin){
@@ -102,11 +107,16 @@ public class AccountFragment extends Fragment {
             ttDoneDangNhap.setVisibility(View.VISIBLE);
         }
 
-        Intent iLogout = new Intent(getActivity() , LoginUserActivity.class);
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), LoginUserActivity.class));
+            }
+        });
+        btnDangKi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SignUpActivity.class));
             }
         });
 
@@ -156,8 +166,11 @@ public class AccountFragment extends Fragment {
         logoutTK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(iLogout);
+                startActivity(new Intent(getContext(), LoginUserActivity.class));
                 getActivity().finish();
+                SharedPreferences settings = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+                settings.edit().clear().commit();
+
             }
         });
         thoatapp.setOnClickListener(new View.OnClickListener() {
@@ -168,10 +181,10 @@ public class AccountFragment extends Fragment {
         });
     }
     private void getDataUser(){
-        Bundle bundle = getActivity().getIntent().getExtras();
-        String name = bundle.getString("name");
-        String role = bundle.getString("role");
-        String avata = bundle.getString("avata");
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+        String name = sharedPreferences.getString("name","");
+        String role = sharedPreferences.getString("role","");
+        String avata = sharedPreferences.getString("avata","");
         tvnameaccount.setText(name);
         tvroleaccount.setText(role);
         Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgacount);

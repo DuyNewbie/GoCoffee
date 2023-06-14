@@ -147,10 +147,16 @@ public class HomeFragment extends Fragment {
 
     }
     private void getDataUser(){
-        Bundle bundle = getActivity().getIntent().getExtras();
-        String name = bundle.getString("name");
-        String role = bundle.getString("role");
-        String avata = bundle.getString("avata");
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("share", Context.MODE_PRIVATE);
+        String name = sharedPreferences.getString("name","");
+        String role = sharedPreferences.getString("role","");
+        String avata = sharedPreferences.getString("avata","");
+
+//        Bundle bundle = getActivity().getIntent().getExtras();
+//        String name = bundle.getString("name");
+//        String role = bundle.getString("role");
+//        String avata = bundle.getString("avata");
         tvnameuser.setText(name);
         tvroleuser.setText(role);
         Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgavata);
