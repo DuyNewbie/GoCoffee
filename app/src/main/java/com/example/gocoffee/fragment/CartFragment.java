@@ -27,7 +27,6 @@ public class CartFragment extends Fragment {
 
     public static CartFragment newInstance(String param1, String param2) {
         CartFragment fragment = new CartFragment();
-
         return fragment;
     }
 
