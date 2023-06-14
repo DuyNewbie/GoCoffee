@@ -24,9 +24,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.Home_adapter_recyclerview;
+import com.example.gocoffee.adapters.Home_category_adapter_recyclerview;
 import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.data_local.DataLocalManager;
 import com.example.gocoffee.models.AllSanPham;
+import com.example.gocoffee.models.Category;
 import com.example.gocoffee.models.SanPham;
 import com.example.gocoffee.models.User;
 
@@ -46,11 +48,14 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private SearchView searchView;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView,categoryRecyclerView;
     private Home_adapter_recyclerview mAdapter;
     private List<SanPham> mArrayList = new ArrayList<>();
     private TextView tvnameuser,tvroleuser;
     private ImageView imgavata;
+
+    private List<Category> mCategoryList = new ArrayList<>();
+    private Home_category_adapter_recyclerview category_adapter;
 
     private AllSanPham allSanPham = new AllSanPham();
 
@@ -103,6 +108,9 @@ public class HomeFragment extends Fragment {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+        LinearLayoutManager categoryManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        categoryRecyclerView.setLayoutManager(categoryManager);
 
         callAPIProducts();
 
@@ -168,7 +176,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<AllSanPham> call, Response<AllSanPham> response) {
                 allSanPham = response.body();
+                mCategoryList = Arrays.asList(response.body().getListCategory());
                 mArrayList = Arrays.asList(response.body().getListProduct());
+
+                category_adapter = new Home_category_adapter_recyclerview(getActivity());
+                category_adapter.setData(mCategoryList);
+                mRecyclerView.setAdapter(category_adapter);
 
                 mAdapter = new Home_adapter_recyclerview(getActivity());
                 mAdapter.setData(mArrayList);

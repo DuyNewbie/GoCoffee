@@ -10,12 +10,25 @@ public class AllSanPham {
     @SerializedName("listProduct")
     private SanPham[] listProduct;
 
-    public AllSanPham(String msg, SanPham[] listProduct) {
+    @SerializedName("listCategory")
+    private Category[] listCategory;
+
+
+    public AllSanPham(String msg, SanPham[] listProduct, Category[] listCategory) {
         this.msg = msg;
         this.listProduct = listProduct;
+        this.listCategory = listCategory;
     }
 
     public AllSanPham() {
+    }
+
+    public Category[] getListCategory() {
+        return listCategory;
+    }
+
+    public void setListCategory(Category[] listCategory) {
+        this.listCategory = listCategory;
     }
 
     public String getMsg() {

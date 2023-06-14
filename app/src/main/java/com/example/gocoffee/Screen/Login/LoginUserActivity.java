@@ -196,7 +196,6 @@ public class LoginUserActivity extends AppCompatActivity {
             error_password.setText("Mật khẩu không được để trống");
             edt_User.setBackground(getDrawable(R.drawable.textlogin));
             edt_Pass.setBackground(getDrawable(R.drawable.bg_error));
-
             return false;
         }
         clearError();

@@ -26,7 +26,6 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
     private List<SanPham> mArrayList;
 
 
-
     public Home_adapter_recyclerview(Context mContext) {
         this.mContext = mContext;
     }
@@ -34,7 +33,7 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_recyclerview_home,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_recyclerview_home, parent, false);
 
         return new UserViewHolder(view);
     }
@@ -42,15 +41,15 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         SanPham object = mArrayList.get(position);
-        if (object == null){
+        if (object == null) {
             return;
         }
 
-            Glide.with(mContext).load("https://gocoffe.herokuapp.com" + object.getImage()).error(R.drawable.img_4).into(holder.home_Item_avatar);
+        Glide.with(mContext).load("https://gocoffe.herokuapp.com" + object.getImage()).error(R.drawable.img_4).into(holder.home_Item_avatar);
 
         holder.home_Item_name.setText(object.getName());
         holder.home_Item_loai.setText("Loại: " + object.getId_category());
-        holder.home_Item_price.setText(object.getPrice()+" VNĐ");
+        holder.home_Item_price.setText(object.getPrice() + " VNĐ");
         String detail = object.getDetail();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -71,14 +70,14 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
 
     }
 
-    public void setData(List<SanPham> mArrayList){
+    public void setData(List<SanPham> mArrayList) {
         this.mArrayList = mArrayList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        if (mArrayList != null )return mArrayList.size();
+        if (mArrayList != null) return mArrayList.size();
         return 0;
     }
 
