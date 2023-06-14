@@ -3,6 +3,8 @@ package com.example.gocoffee.models;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+    @SerializedName("_id")
+    private String _id;
     @SerializedName("username")
     private String username;
     @SerializedName("password")
@@ -16,13 +18,22 @@ public class User {
     @SerializedName("avata")
     private String avata;
 
-    public User(String username, String password, String fullname, String phone, String role, String avata) {
+    public User(String _id, String username, String password, String fullname, String phone, String role, String avata) {
+        this._id = _id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.phone = phone;
         this.role = role;
         this.avata = avata;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getUsername() {

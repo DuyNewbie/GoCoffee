@@ -135,6 +135,7 @@ public class LoginUserActivity extends AppCompatActivity {
                                 editor.putString("name",user.getFullname());
                                 editor.putString("role",user.getRole());
                                 editor.putString("avata",user.getAvata());
+                                editor.putString("idUser",user.get_id());
                                 editor.apply();
 
 

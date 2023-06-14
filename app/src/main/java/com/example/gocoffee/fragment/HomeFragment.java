@@ -88,6 +88,7 @@ public class HomeFragment extends Fragment {
 
         searchView = view.findViewById(R.id.searchView);
         mRecyclerView = view.findViewById(R.id.home_RecyclerView);
+        categoryRecyclerView = view.findViewById(R.id.home_Category_RecyclerView);
         tvnameuser = view.findViewById(R.id.tvnameuser);
         tvroleuser = view.findViewById(R.id.tvrole);
         imgavata = view.findViewById(R.id.imgavata);

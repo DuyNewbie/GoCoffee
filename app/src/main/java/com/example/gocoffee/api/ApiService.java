@@ -1,7 +1,9 @@
 package com.example.gocoffee.api;
 
+import com.example.gocoffee.models.AllMessCart;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.AllUser;
+import com.example.gocoffee.models.Cart;
 import com.example.gocoffee.models.MessegerAccount;
 import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
@@ -48,5 +50,9 @@ public interface ApiService {
 
     @GET("product")
     Call<AllSanPham> getListSanPham();
+
+    @GET("list-cart")
+    Call<AllMessCart> getCart(@Query("idUser") String idUser);
+
 
 }
