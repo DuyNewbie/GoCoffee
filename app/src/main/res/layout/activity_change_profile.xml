@@ -51,6 +51,7 @@
                 android:layout_toRightOf="@+id/username_icon"
                 android:text=""
                 android:hint="Tên "
+                android:textColor="@color/white"
                 android:textColorHint="#AEAEAE"
                 android:padding="10dp"
                 android:layout_width="match_parent"
@@ -86,6 +87,7 @@
                 android:text=""
                 android:hint="Địa chỉ"
                 android:textColorHint="#AEAEAE"
+                android:textColor="@color/white"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
@@ -117,6 +119,7 @@
                 android:hint="Email"
                 android:textColorHint="#AEAEAE"
                 android:padding="10dp"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
 
@@ -146,6 +149,7 @@
                 android:text=""
                 android:hint="Số điện thoại"
                 android:textColorHint="#AEAEAE"
+                android:textColor="@color/white"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
