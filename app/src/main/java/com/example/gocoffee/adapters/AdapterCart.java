@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.models.Cart;
 
@@ -22,8 +21,13 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
     private Context context;
     private List<Cart> cartList;
 
-    public AdapterCart(Context context) {
+    public AdapterCart(List<Cart> cartList) {
         this.context = context;
+        this.cartList = cartList;
+    }
+
+    public AdapterCart(Cart cartList) {
+
     }
 
     @NonNull
@@ -39,15 +43,17 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
         if (cart == null){
             return;
         }
-        Glide.with(context).load("https://gocoffe.herokuapp.com" + cart.getImgavatacart()).error(R.drawable.img_4).into(holder.imgAvataCart);
+//        Glide.with(context).load("https://gocoffe.herokuapp.com" + cart.getImgavatacart()).error(R.drawable.img_4).into(holder.imgAvataCart);
         holder.tvNameCart.setText(cart.getNameproductcart());
         holder.tvPriceCart.setText(cart.getPriceproductcart());
-        holder.edSoluong.setText(cart.getSoluong());
+//        holder.edSoluong.setText(cart.getSoluong());
     }
 
     @Override
     public int getItemCount() {
-        if (cartList != null )return cartList.size();
+        if (cartList != null){
+            return cartList.size();
+        }
         return 0;
     }
 
