@@ -51,6 +51,9 @@ public interface ApiService {
     @GET("product")
     Call<AllSanPham> getListSanPham();
 
+    @GET("product")
+    Call<AllSanPham> getProductByCategory(@Query("idCategory") String idCategory);
+
     @GET("list-cart")
     Call<AllMessCart> getCart(@Query("idUser") String idUser);
 

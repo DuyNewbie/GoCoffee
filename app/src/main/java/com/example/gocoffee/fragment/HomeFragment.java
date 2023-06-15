@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -163,7 +164,8 @@ public class HomeFragment extends Fragment {
         String avata = sharedPreferences.getString("avata","");
 
 //        Bundle bundle = getActivity().getIntent().getExtras();
-//        String name = bundle.getString("name");
+//        String name = bu
+//        ndle.getString("name");
 //        String role = bundle.getString("role");
 //        String avata = bundle.getString("avata");
         tvnameuser.setText(name);
@@ -179,10 +181,11 @@ public class HomeFragment extends Fragment {
                 allSanPham = response.body();
                 mCategoryList = Arrays.asList(response.body().getListCategory());
                 mArrayList = Arrays.asList(response.body().getListProduct());
+                Log.i("Test",mCategoryList.size()+"");
 
-                category_adapter = new Home_category_adapter_recyclerview(getActivity());
+                category_adapter = new Home_category_adapter_recyclerview(getActivity(),mRecyclerView);
                 category_adapter.setData(mCategoryList);
-                mRecyclerView.setAdapter(category_adapter);
+                categoryRecyclerView.setAdapter(category_adapter);
 
                 mAdapter = new Home_adapter_recyclerview(getActivity());
                 mAdapter.setData(mArrayList);

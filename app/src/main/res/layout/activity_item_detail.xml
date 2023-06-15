@@ -118,13 +118,14 @@
                         android:layout_height="48dp"
                         android:background="@drawable/add"
                         android:src="@drawable/baseline_remove_24"/>
-                    <TextView
+                    <EditText
                         android:background="@drawable/add"
                         android:paddingLeft="40dp"
                         android:paddingRight="40dp"
                         android:id="@+id/itemDetail_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
                         android:text="1"
                         android:layout_marginRight="32dp"
                         android:layout_marginLeft="32dp"
@@ -165,6 +166,7 @@
         android:paddingBottom="24dp"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/itemDetail_tongTien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
