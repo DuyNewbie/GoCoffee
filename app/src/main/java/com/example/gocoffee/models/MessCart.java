@@ -8,15 +8,15 @@ public class MessCart {
     @SerializedName("id_User")
     private String id_User;
     @SerializedName("id_product")
-    private String id_product;
+    private Product id_product;
     @SerializedName("quantity")
-    private int quantity;
+    private int quantityproduct;
 
-    public MessCart(String _id, String id_User, String id_product, int quantity) {
+    public MessCart(String _id, String id_User, Product id_product, int quantityproduct) {
         this._id = _id;
         this.id_User = id_User;
         this.id_product = id_product;
-        this.quantity = quantity;
+        this.quantityproduct = quantityproduct;
     }
 
     public String get_id() {
@@ -35,19 +35,19 @@ public class MessCart {
         this.id_User = id_User;
     }
 
-    public String getId_product() {
+    public Product getId_product() {
         return id_product;
     }
 
-    public void setId_product(String id_product) {
+    public void setId_product(Product id_product) {
         this.id_product = id_product;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQuantityproduct() {
+        return quantityproduct;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantityproduct(int quantityproduct) {
+        this.quantityproduct = quantityproduct;
     }
 }

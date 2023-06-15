@@ -29,6 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
         boolean landau = sharedPreferences.getBoolean("f1",false);
         if (landau){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
         }else {
             imgNext.setOnClickListener(new View.OnClickListener() {
                 @Override

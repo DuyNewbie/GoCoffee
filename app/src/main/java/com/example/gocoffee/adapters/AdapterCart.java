@@ -12,50 +12,56 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.models.Cart;
+import com.example.gocoffee.models.Product;
+import com.example.gocoffee.models.SanPham;
 
 import java.util.List;
 
 public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHolder>{
-    private Context context;
-    private List<Cart> cartList;
 
-    public AdapterCart(List<Cart> cartList) {
+    private Context context;
+
+    private List<Product> products;
+
+    public AdapterCart(Context context) {
         this.context = context;
-        this.cartList = cartList;
     }
 
-    public AdapterCart(Cart cartList) {
-
+    public AdapterCart() {
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
+
         return new ProductViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Cart cart = cartList.get(position);
-        if (cart == null){
-            return;
-        }
-//        Glide.with(context).load("https://gocoffe.herokuapp.com" + cart.getImgavatacart()).error(R.drawable.img_4).into(holder.imgAvataCart);
-        holder.tvNameCart.setText(cart.getNameproductcart());
-        holder.tvPriceCart.setText(cart.getPriceproductcart());
-//        holder.edSoluong.setText(cart.getSoluong());
+        Product product = products.get(position);
+        holder.edSoluong.setText(product.getQuantity()+"");
+        holder.tvPriceCart.setText(product.getPrice()+"");
+        holder.tvNameCart.setText(product.getName()+"");
+        Glide.with(context).load("https://gocoffe.herokuapp.com" + product.getImage()).error(R.drawable.img_4).into(holder.imgAvataCart);
+
     }
 
     @Override
     public int getItemCount() {
-        if (cartList != null){
-            return cartList.size();
-        }
+        if (products != null) return products.size();
         return 0;
     }
+
+    public void setData(List<Product> mArrayList) {
+        this.products = mArrayList;
+        notifyDataSetChanged();
+    }
+
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout btnCong,btnTru;
