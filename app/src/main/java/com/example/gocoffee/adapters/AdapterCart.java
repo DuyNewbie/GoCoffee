@@ -19,6 +19,7 @@ import com.example.gocoffee.models.MessCart;
 import com.example.gocoffee.models.Product;
 import com.example.gocoffee.models.SanPham;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHolder>{
@@ -26,7 +27,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
     private Context context;
 
     private List<Product> products;
-    private List<MessCart> carts;
+    private List<MessCart> carts= new ArrayList<>();
 
     public AdapterCart(Context context) {
         this.context = context;
@@ -39,15 +40,16 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
-
         return new ProductViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        MessCart messCart =  carts.get(position);
-        Product product = messCart.getId_product();
-        holder.edSoluong.setText(messCart.getQuantityproduct()+"");
+        MessCart cart = carts.get(position);
+
+        Product product = cart.getId_product();
+
+        holder.edSoluong.setText(cart.getQuantityproduct()+"");
         holder.tvPriceCart.setText(product.getPrice()+"");
         holder.tvNameCart.setText(product.getName()+"");
         Glide.with(context).load("https://gocoffe.herokuapp.com" + product.getImage()).error(R.drawable.img_4).into(holder.imgAvataCart);
@@ -56,7 +58,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
 
     @Override
     public int getItemCount() {
-        if (products != null) return products.size();
+        if (carts != null) return carts.size();
         return 0;
     }
 

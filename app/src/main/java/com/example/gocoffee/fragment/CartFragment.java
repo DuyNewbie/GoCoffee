@@ -114,10 +114,9 @@ public class CartFragment extends Fragment {
             @Override
             public void onResponse(Call<AllMessCart> call, Response<AllMessCart> response) {
                 carts = Arrays.asList(response.body().getListCart());
-                for (MessCart cart :carts){
-                    products.add(cart.getId_product());
-                    Toast.makeText(getContext(), ""+cart.getQuantityproduct(), Toast.LENGTH_SHORT).show();
-                }
+//                for (MessCart cart :carts){
+//                    products.add(cart.getId_product());
+//                }
 
                 adapterCart = new AdapterCart(getActivity());
                 adapterCart.setData(carts);
