@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
+import com.example.gocoffee.Screen.Login.LoginUserActivity;
 import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.MessAddCart;
@@ -32,16 +34,16 @@ import retrofit2.Response;
 public class ItemDetail extends AppCompatActivity {
 
     private ImageView btnback;
-    private TextView tvName,tvPrice,tvDetail,tvTongTien;
+    private TextView tvName, tvPrice, tvDetail, tvTongTien;
     private ImageView imgBanner;
 
-    private ImageButton tang,giam;
+    private ImageButton tang, giam;
 
     private EditText edtSoLuong;
 
     private Button btnAdd;
 
-    private int soLuong  = 1;
+    private int soLuong = 1;
     private int tongTien = 0;
 
     @Override
@@ -69,14 +71,16 @@ public class ItemDetail extends AppCompatActivity {
         String img = bundle.getString("object_img");
         String detail = bundle.getString("object_detail");
         tvName.setText(name);
-        tvPrice.setText(price+"VNĐ");
+        tvPrice.setText(price + "VNĐ");
         tvDetail.setText(detail);
-        edtSoLuong.setText(soLuong+"");
+        edtSoLuong.setText(soLuong + "");
         tongTien += Integer.parseInt(price);
 
-        tvTongTien.setText("Thành tiền: "+tongTien+" VND");
+        tvTongTien.setText("Thành tiền: " + tongTien + " VND");
 
-        SharedPreferences sharedPreferences = getSharedPreferences("share",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getApplication().getSharedPreferences("share", Context.MODE_PRIVATE);
+        boolean isLogin = sharedPreferences.getBoolean("IsLogin", false);
+
         String idUser = sharedPreferences.getString("idUser","");
 
 
@@ -85,23 +89,23 @@ public class ItemDetail extends AppCompatActivity {
         tang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soLuong = Integer.parseInt(edtSoLuong.getText().toString() );
+                soLuong = Integer.parseInt(edtSoLuong.getText().toString());
                 soLuong++;
                 tongTien = soLuong * Integer.parseInt(price);
-                tvTongTien.setText("Thành tiền: "+tongTien+" VND");
-                edtSoLuong.setText(""+soLuong);
+                tvTongTien.setText("Thành tiền: " + tongTien + " VND");
+                edtSoLuong.setText("" + soLuong);
             }
         });
 
         giam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soLuong = Integer.parseInt(edtSoLuong.getText().toString() );
-                if (soLuong >= 2){
+                soLuong = Integer.parseInt(edtSoLuong.getText().toString());
+                if (soLuong >= 2) {
                     soLuong--;
-                    edtSoLuong.setText(""+soLuong);
+                    edtSoLuong.setText("" + soLuong);
                     tongTien = soLuong * Integer.parseInt(price);
-                    tvTongTien.setText("Thành tiền: "+tongTien+" VND");
+                    tvTongTien.setText("Thành tiền: " + tongTien + " VND");
                 }
 
             }
@@ -110,26 +114,31 @@ public class ItemDetail extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soLuong = Integer.parseInt(edtSoLuong.getText().toString() );
-                if (soLuong <= 0){
-                    Toast.makeText(ItemDetail.this, "Số lượng phải lớn hơn 0!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                else {
-                    Dialog dialog = new Dialog(ItemDetail.this);
 
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialog.setContentView(R.layout.dialog_hoadon);
-                    dialog.show();
+                if (!isLogin) {
+                    Intent intent = new Intent(ItemDetail.this, LoginUserActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(ItemDetail.this, "Đăng nhập để mua hàng!", Toast.LENGTH_SHORT).show();
+                } else {
+                    soLuong = Integer.parseInt(edtSoLuong.getText().toString());
+                    if (soLuong <= 0) {
+                        Toast.makeText(ItemDetail.this, "Số lượng phải lớn hơn 0!", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else {
+                        Dialog dialog = new Dialog(ItemDetail.this);
 
-                    TextView tvSoLuong = dialog.findViewById(R.id.dialog_soLuong);
-                    TextView tvTongTien = dialog.findViewById(R.id.dialog_tongTien);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setContentView(R.layout.dialog_hoadon);
+                        dialog.show();
 
-                    tvSoLuong.setText("Số lượng sản phẩm: "+soLuong);
-                    tvTongTien.setText("Tổng tiền: "+tongTien+ " VND");
+                        TextView tvSoLuong = dialog.findViewById(R.id.dialog_soLuong);
+                        TextView tvTongTien = dialog.findViewById(R.id.dialog_tongTien);
 
-                    Button ok = dialog.findViewById(R.id.dialog_Ok);
-                    Button cancel = dialog.findViewById(R.id.dialog_Cancel);
+                        tvSoLuong.setText("Số lượng sản phẩm: " + soLuong);
+                        tvTongTien.setText("Tổng tiền: " + tongTien + " VND");
+
+                        Button ok = dialog.findViewById(R.id.dialog_Ok);
+                        Button cancel = dialog.findViewById(R.id.dialog_Cancel);
 
                     ok.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -140,13 +149,14 @@ public class ItemDetail extends AppCompatActivity {
                         }
                     });
 
-                    cancel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
+                        cancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
 
+                    }
                 }
 
 

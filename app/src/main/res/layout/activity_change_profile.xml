@@ -30,12 +30,18 @@
             android:layout_marginLeft="23dp"
             android:textColor="@color/white"/>
     </LinearLayout>
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:src="@drawable/img_14"/>
+            app:cardCornerRadius="100dp"
+            >
+            <ImageView
+                android:id="@+id/profile_avatar"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/img_14"/>
+        </androidx.cardview.widget.CardView>
 
         <RelativeLayout
             android:layout_marginHorizontal="20dp"
@@ -46,7 +52,7 @@
 
             <!-- INPUT -->
             <EditText
-                android:id="@+id/username_input"
+                android:id="@+id/profile_name"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon"
                 android:text=""
@@ -81,7 +87,7 @@
 
             <!-- INPUT -->
             <EditText
-                android:id="@+id/username_input2"
+                android:id="@+id/profile_address"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon2"
                 android:text=""
@@ -90,6 +96,7 @@
                 android:textColor="@color/white"
                 android:padding="10dp"
                 android:layout_width="match_parent"
+
                 android:layout_height="60dp"/>
 
             <!-- ICON -->
@@ -112,8 +119,9 @@
 
             <!-- INPUT -->
             <EditText
-                android:id="@+id/username_input1"
+                android:id="@+id/profile_email"
                 android:layout_marginLeft="10dp"
+
                 android:layout_toRightOf="@+id/username_icon1"
                 android:text=""
                 android:hint="Email"
@@ -125,6 +133,7 @@
 
             <!-- ICON -->
             <ImageView
+
                 android:layout_marginTop="10dp"
                 android:padding="3dp"
                 android:id="@+id/username_icon1"
@@ -143,13 +152,14 @@
 
             <!-- INPUT -->
             <EditText
-                android:id="@+id/username_input3"
+                android:id="@+id/profile_phone"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/username_icon3"
                 android:text=""
                 android:hint="Số điện thoại"
                 android:textColorHint="#AEAEAE"
                 android:textColor="@color/white"
+
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
@@ -166,6 +176,7 @@
 
         </RelativeLayout>
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profile_btn_update"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

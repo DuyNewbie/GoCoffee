@@ -67,7 +67,7 @@ public class Home_category_adapter_recyclerview extends RecyclerView.Adapter<Hom
             @Override
             public void onClick(View v) {
                 callAPIProducts(object.get_id());
-                Toast.makeText(mContext, "aaaaaa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Loading....", Toast.LENGTH_SHORT).show();
             }
         });
 

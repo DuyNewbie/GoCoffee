@@ -68,7 +68,7 @@ public class LoginUserActivity extends AppCompatActivity {
         tv_signUp = findViewById(R.id.login_tv_signUp);
         error_username = findViewById(R.id.login_error_username);
         error_password = findViewById(R.id.login_error_password);
-        saveLoginCheckBox = findViewById(R.id.login_chk);
+            saveLoginCheckBox = findViewById(R.id.login_chk);
 
 
         mUsers = new ArrayList<>();
@@ -136,6 +136,11 @@ public class LoginUserActivity extends AppCompatActivity {
                                 editor.putString("role",user.getRole());
                                 editor.putString("avata",user.getAvata());
                                 editor.putString("idUser",user.get_id());
+                                editor.putString("phone",user.getPhone());
+                                editor.putString("email",user.getEmail());
+                                editor.putString("address",user.getAddress());
+                                editor.putString("username",user.getUsername());
+
                                 editor.apply();
 
 

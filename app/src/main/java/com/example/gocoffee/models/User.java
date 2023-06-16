@@ -18,6 +18,12 @@ public class User {
     @SerializedName("avata")
     private String avata;
 
+    @SerializedName("email")
+    private String email;
+
+    @SerializedName("address")
+    private String address;
+
     public User(String _id, String username, String password, String fullname, String phone, String role, String avata) {
         this._id = _id;
         this.username = username;
@@ -26,6 +32,48 @@ public class User {
         this.phone = phone;
         this.role = role;
         this.avata = avata;
+    }
+
+    public User(String _id, String username, String password, String fullname, String phone, String role, String avata, String email) {
+        this._id = _id;
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.phone = phone;
+        this.role = role;
+        this.avata = avata;
+        this.email = email;
+    }
+
+    public User(String _id, String username, String password, String fullname, String phone, String role, String avata, String email, String address) {
+        this._id = _id;
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.phone = phone;
+        this.role = role;
+        this.avata = avata;
+        this.email = email;
+        this.address = address;
+    }
+
+    public User() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String get_id() {

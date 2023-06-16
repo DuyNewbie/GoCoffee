@@ -62,4 +62,14 @@ public interface ApiService {
                                @Query("idProduct") String idProduct,
                                @Query("Quantity") int Quantity);
 
+    @POST("change-info")
+    Call<AllUser> postUpdateUser(@Query("FullName") String name,
+                        @Query("UserName") String userName,
+                        @Query("Email") String email,
+                        @Query("Phone") String phone,
+                        @Query("Address") String address
+                        );
+
+
+
 }
