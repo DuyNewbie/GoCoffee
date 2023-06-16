@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,7 +21,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
+import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.fragment.HomeFragment;
+import com.example.gocoffee.models.MessAddCart;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ItemDetail extends AppCompatActivity {
 
@@ -56,6 +63,7 @@ public class ItemDetail extends AppCompatActivity {
 
 
         Bundle bundle = getIntent().getExtras();
+        String idproduct = bundle.getString("object_idproduct");
         String name = bundle.getString("object_name");
         String price = bundle.getString("object_price");
         String img = bundle.getString("object_img");
@@ -67,6 +75,11 @@ public class ItemDetail extends AppCompatActivity {
         tongTien += Integer.parseInt(price);
 
         tvTongTien.setText("Thành tiền: "+tongTien+" VND");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("share",MODE_PRIVATE);
+        String idUser = sharedPreferences.getString("idUser","");
+
+
 
 
         tang.setOnClickListener(new View.OnClickListener() {
@@ -121,8 +134,8 @@ public class ItemDetail extends AppCompatActivity {
                     ok.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
-
+                            ////
+                            postAddCart(idUser,idproduct,soLuong);
                             dialog.dismiss();
                         }
                     });
@@ -153,5 +166,24 @@ public class ItemDetail extends AppCompatActivity {
             }
         });
 
+
+
+
     }
+    private void postAddCart(String idUser,String idProduct,int Quantity){
+        ApiService.apiService.postCart(idUser, idProduct, Quantity).enqueue(new Callback<MessAddCart>() {
+            @Override
+            public void onResponse(Call<MessAddCart> call, Response<MessAddCart> response) {
+                Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<MessAddCart> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Call không thành công", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
 }

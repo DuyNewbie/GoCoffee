@@ -57,6 +57,7 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ItemDetail.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("object_idproduct",object.get_id());
                 bundle.putString("object_name", object.getName());
                 bundle.putString("object_img", object.getImage());
                 bundle.putString("object_category", object.getId_category());
@@ -95,7 +96,6 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
             home_Item_name = itemView.findViewById(R.id.home_Item_name);
             home_Item_price = itemView.findViewById(R.id.home_Item_price);
             home_Item_loai = itemView.findViewById(R.id.home_Item_loai);
-
 
         }
     }

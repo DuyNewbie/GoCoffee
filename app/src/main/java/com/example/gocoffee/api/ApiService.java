@@ -4,6 +4,7 @@ import com.example.gocoffee.models.AllMessCart;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.Cart;
+import com.example.gocoffee.models.MessAddCart;
 import com.example.gocoffee.models.MessegerAccount;
 import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
@@ -56,6 +57,9 @@ public interface ApiService {
 
     @GET("list-cart")
     Call<AllMessCart> getCart(@Query("idUser") String idUser);
-
+    @POST("add-cart")
+    Call<MessAddCart> postCart(@Query("idUser") String idUser,
+                               @Query("idProduct") String idProduct,
+                               @Query("Quantity") int Quantity);
 
 }

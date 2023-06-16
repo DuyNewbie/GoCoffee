@@ -116,10 +116,11 @@ public class CartFragment extends Fragment {
                 carts = Arrays.asList(response.body().getListCart());
                 for (MessCart cart :carts){
                     products.add(cart.getId_product());
-
+                    Toast.makeText(getContext(), ""+cart.getQuantityproduct(), Toast.LENGTH_SHORT).show();
                 }
+
                 adapterCart = new AdapterCart(getActivity());
-                adapterCart.setData(products);
+                adapterCart.setData(carts);
                 recyclerView.setAdapter(adapterCart);
 
 

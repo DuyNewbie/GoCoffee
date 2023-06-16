@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.models.Cart;
+import com.example.gocoffee.models.MessCart;
 import com.example.gocoffee.models.Product;
 import com.example.gocoffee.models.SanPham;
 
@@ -25,6 +26,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
     private Context context;
 
     private List<Product> products;
+    private List<MessCart> carts;
 
     public AdapterCart(Context context) {
         this.context = context;
@@ -43,8 +45,9 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = products.get(position);
-        holder.edSoluong.setText(product.getQuantity()+"");
+        MessCart messCart =  carts.get(position);
+        Product product = messCart.getId_product();
+        holder.edSoluong.setText(messCart.getQuantityproduct()+"");
         holder.tvPriceCart.setText(product.getPrice()+"");
         holder.tvNameCart.setText(product.getName()+"");
         Glide.with(context).load("https://gocoffe.herokuapp.com" + product.getImage()).error(R.drawable.img_4).into(holder.imgAvataCart);
@@ -57,8 +60,8 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
         return 0;
     }
 
-    public void setData(List<Product> mArrayList) {
-        this.products = mArrayList;
+    public void setData(List<MessCart> mArrayList) {
+        this.carts = mArrayList;
         notifyDataSetChanged();
     }
 
