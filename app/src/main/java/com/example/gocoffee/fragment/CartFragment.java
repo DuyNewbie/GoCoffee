@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gocoffee.R;
@@ -22,10 +24,12 @@ import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.models.AllMessCart;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.Cart;
+import com.example.gocoffee.models.MessBill;
 import com.example.gocoffee.models.MessCart;
 import com.example.gocoffee.models.Product;
 import com.example.gocoffee.models.SanPham;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,6 +51,9 @@ public class CartFragment extends Fragment {
     private List<MessCart> carts= new ArrayList<>();
     private List<Product> products = new ArrayList<>();
     private AdapterCart adapterCart;
+    private Button btnDatHang;
+    private TextView tvTongTien;
+    private int TongTien;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -75,8 +82,9 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        btnDatHang = view.findViewById(R.id.btn_DatHang);
         recyclerView = view.findViewById(R.id.cart_RecyclerView);
+        tvTongTien = view.findViewById(R.id.tvTongtien);
 
 
         LinearLayoutManager layoutManager =new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
@@ -89,6 +97,20 @@ public class CartFragment extends Fragment {
         String idUser = sharedPreferences.getString("idUser","");
 
         callMessCart(idUser);
+        btnDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String listidCart = "";
+                for (MessCart cart : carts ){
+                    listidCart += cart.get_id();
+                    listidCart += "-";
+                }
+                postBill(idUser,listidCart,TongTien);
+            }
+        });
+
+
+
 
 
 //        for (MessCart cart : carts){
@@ -121,13 +143,33 @@ public class CartFragment extends Fragment {
                 adapterCart = new AdapterCart(getActivity());
                 adapterCart.setData(carts);
                 recyclerView.setAdapter(adapterCart);
-
+                for(MessCart cart : carts){
+                    int gia = cart.getId_product().getPrice();
+                    int soluong = cart.getQuantityproduct();
+                    int giaSP = gia * soluong;
+                    TongTien += giaSP;
+                }
+                tvTongTien.setText(TongTien + "VND");
 
             }
 
             @Override
             public void onFailure(Call<AllMessCart> call, Throwable t) {
 
+            }
+        });
+    }
+    private void postBill(String idUser , String listCart , int TongTien){
+        ApiService.apiService.postBill(idUser,listCart,TongTien).enqueue(new Callback<MessBill>() {
+            @Override
+            public void onResponse(Call<MessBill> call, Response<MessBill> response) {
+                Toast.makeText(getContext(), "Thành công", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<MessBill> call, Throwable t) {
+                Toast.makeText(getContext(), "Không thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }

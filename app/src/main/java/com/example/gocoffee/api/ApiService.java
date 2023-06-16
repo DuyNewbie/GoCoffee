@@ -5,6 +5,7 @@ import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.Cart;
 import com.example.gocoffee.models.MessAddCart;
+import com.example.gocoffee.models.MessBill;
 import com.example.gocoffee.models.MessegerAccount;
 import com.example.gocoffee.models.MessegerUser;
 import com.example.gocoffee.models.PostUser;
@@ -13,6 +14,8 @@ import com.example.gocoffee.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,7 +33,7 @@ public interface ApiService {
     /// Link Api : http://gocoffe.herokuapp.com/api/user  https://gocoffe.herokuapp.com/api/user
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
-    ApiService apiService = new Retrofit.Builder().baseUrl("https://gocoffe.herokuapp.com/api/")
+    ApiService apiService = new Retrofit.Builder().baseUrl("http://26.190.110.177:3000/api/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build().create(ApiService.class);
 
@@ -67,9 +70,10 @@ public interface ApiService {
                         @Query("UserName") String userName,
                         @Query("Email") String email,
                         @Query("Phone") String phone,
-                        @Query("Address") String address
-                        );
-
-
+                        @Query("Address") String address);
+    @POST("add-bill")
+    Call<MessBill> postBill(@Query("idUser") String idUser,
+                            @Query("listCart")String listCart,
+                            @Query("Prices") int Prices);
 
 }

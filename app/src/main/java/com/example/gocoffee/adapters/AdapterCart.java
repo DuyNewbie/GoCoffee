@@ -1,6 +1,7 @@
 package com.example.gocoffee.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ProductViewHol
         Product product = cart.getId_product();
 
         holder.edSoluong.setText(cart.getQuantityproduct()+"");
-        holder.tvPriceCart.setText(product.getPrice()+"");
+        holder.tvPriceCart.setText(product.getPrice()*cart.getQuantityproduct()+"");
         holder.tvNameCart.setText(product.getName()+"");
         Glide.with(context).load("https://gocoffe.herokuapp.com" + product.getImage()).error(R.drawable.img_4).into(holder.imgAvataCart);
 
