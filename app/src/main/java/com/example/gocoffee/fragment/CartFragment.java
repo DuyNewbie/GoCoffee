@@ -22,17 +22,14 @@ import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.AdapterCart;
 import com.example.gocoffee.api.ApiService;
 import com.example.gocoffee.models.AllMessCart;
-import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.Cart;
 import com.example.gocoffee.models.MessBill;
 import com.example.gocoffee.models.MessCart;
 import com.example.gocoffee.models.Product;
 import com.example.gocoffee.models.SanPham;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;

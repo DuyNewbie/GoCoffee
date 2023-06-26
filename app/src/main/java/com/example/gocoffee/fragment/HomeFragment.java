@@ -2,7 +2,6 @@ package com.example.gocoffee.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +25,9 @@ import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.Home_adapter_recyclerview;
 import com.example.gocoffee.adapters.Home_category_adapter_recyclerview;
 import com.example.gocoffee.api.ApiService;
-import com.example.gocoffee.data_local.DataLocalManager;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.Category;
 import com.example.gocoffee.models.SanPham;
-import com.example.gocoffee.models.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;

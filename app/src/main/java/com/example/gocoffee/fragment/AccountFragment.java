@@ -3,7 +3,6 @@ package com.example.gocoffee.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.Screen.Login.LoginUserActivity;
 import com.example.gocoffee.Screen.Login.SignUpActivity;
-import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.Screen.Setting.ChangeLangage;
 import com.example.gocoffee.Screen.Setting.ChangePass;
 import com.example.gocoffee.Screen.Setting.ChangeProfile;
@@ -29,7 +27,6 @@ import com.example.gocoffee.Screen.Setting.Contact;
 import com.example.gocoffee.Screen.Setting.PurchaseHistory;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.Setting.TermsofService;
-import com.example.gocoffee.data_local.DataLocalManager;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,15 +1,11 @@
 package com.example.gocoffee.Screen.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Debug;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -21,26 +17,17 @@ import android.widget.Toast;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.MainActivity;
 import com.example.gocoffee.api.ApiService;
-import com.example.gocoffee.api.RetrofitClient;
-import com.example.gocoffee.data_local.DataLocalManager;
-import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.AllUser;
 import com.example.gocoffee.models.MessegerUser;
-import com.example.gocoffee.models.PostUser;
 import com.example.gocoffee.models.User;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.Field;
-import retrofit2.http.GET;
 
 public class LoginUserActivity extends AppCompatActivity {
 
