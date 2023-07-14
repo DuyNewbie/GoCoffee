@@ -177,7 +177,7 @@ public class HomeFragment extends Fragment {
                 allSanPham = response.body();
                 mCategoryList = Arrays.asList(response.body().getListCategory());
                 mArrayList = Arrays.asList(response.body().getListProduct());
-                Log.i("Test",mCategoryList.size()+"");
+                Log.i("Test",mArrayList.toString());
 
                 category_adapter = new Home_category_adapter_recyclerview(getActivity(),mRecyclerView);
                 category_adapter.setData(mCategoryList);
