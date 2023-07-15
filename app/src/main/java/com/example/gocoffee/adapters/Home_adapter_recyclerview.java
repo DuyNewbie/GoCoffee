@@ -44,7 +44,7 @@ public class Home_adapter_recyclerview extends RecyclerView.Adapter<Home_adapter
             return;
         }
 
-        Glide.with(mContext).load("https://gocoffe.herokuapp.com" + object.getImage()).error(R.drawable.img_4).into(holder.home_Item_avatar);
+        Glide.with(mContext).load("http://www.gocoffee.click" + object.getImage()).error(R.drawable.img_4).into(holder.home_Item_avatar);
 
         holder.home_Item_name.setText(object.getName());
         holder.home_Item_loai.setText("Loại: " + object.getId_category());
