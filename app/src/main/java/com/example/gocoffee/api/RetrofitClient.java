@@ -9,7 +9,7 @@ public class RetrofitClient {
     public static Retrofit getRetrofitInstance(){
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://gocoffe.herokuapp.com/api/")
+                    .baseUrl("https://www.gocoffee.click/api/")
                     .addConverterFactory(GsonConverterFactory.create()).build();
         }
         return retrofit;
