@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
 
     private SearchView searchView;
     private RecyclerView mRecyclerView,categoryRecyclerView;
-    private Home_adapter_recyclerview mAdapter;
+    private Home_adapter_recyclerview   mAdapter;
     private List<SanPham> mArrayList = new ArrayList<>();
     private TextView tvnameuser,tvroleuser;
     private ImageView imgavata;
