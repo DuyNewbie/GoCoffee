@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.api.apiLink;
 import com.example.gocoffee.models.AllUser;
 
 import retrofit2.Call;
@@ -54,7 +55,7 @@ public class ChangeProfile extends AppCompatActivity {
         String username = sharedPreferences.getString("username","");
 
 
-        Glide.with(getApplication()).load("https://gocoffe.herokuapp.com" + sharedPreferences.getString("avata","")).error(R.drawable.img_14).into(avatar);
+        Glide.with(getApplication()).load(apiLink.BASE_API + sharedPreferences.getString("avata","")).error(R.drawable.img_14).into(avatar);
 
         edtName.setText(name);
         edtEmail.setText(email);

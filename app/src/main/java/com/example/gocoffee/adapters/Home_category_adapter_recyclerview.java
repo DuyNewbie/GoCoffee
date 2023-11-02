@@ -69,9 +69,6 @@ public class Home_category_adapter_recyclerview extends RecyclerView.Adapter<Hom
             }
         });
 
-
-
-
     }
 
     @Override

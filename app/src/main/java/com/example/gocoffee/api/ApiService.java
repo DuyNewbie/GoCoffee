@@ -18,10 +18,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    /// Link Api : http://gocoffe.herokuapp.com/api/user  https://gocoffe.herokuapp.com/api/user
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
-    ApiService apiService = new Retrofit.Builder().baseUrl("http://www.gocoffee.click/api/")
+    ApiService apiService = new Retrofit.Builder().baseUrl(apiLink.BASE_API + "/api/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build().create(ApiService.class);
 
@@ -38,7 +37,6 @@ public interface ApiService {
                                       @Query("Address") String Address,
                                       @Query("Email") String Email,
                                       @Query("Phone") String Phone);
-
 
     @GET("product")
     Call<AllSanPham> getListSanPham();

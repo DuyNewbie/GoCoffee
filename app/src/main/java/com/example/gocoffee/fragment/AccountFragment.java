@@ -27,6 +27,7 @@ import com.example.gocoffee.Screen.Setting.Contact;
 import com.example.gocoffee.Screen.Setting.PurchaseHistory;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.Setting.TermsofService;
+import com.example.gocoffee.api.apiLink;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -184,6 +185,6 @@ public class AccountFragment extends Fragment {
         String avata = sharedPreferences.getString("avata","");
         tvnameaccount.setText(name);
         tvroleaccount.setText(role);
-        Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgacount);
+        Glide.with(getContext()).load(apiLink.BASE_API + avata).error(R.drawable.img_4).into(imgacount);
     }
 }

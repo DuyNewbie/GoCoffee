@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.gocoffee.R;
 import com.example.gocoffee.Screen.Login.LoginUserActivity;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.api.apiLink;
 import com.example.gocoffee.fragment.HomeFragment;
 import com.example.gocoffee.models.MessAddCart;
 
@@ -163,7 +164,7 @@ public class ItemDetail extends AppCompatActivity {
 
 
 
-        Glide.with(getApplicationContext()).load("https://gocoffe.herokuapp.com" + img).error(R.drawable.img_4).into(imgBanner);
+        Glide.with(getApplicationContext()).load(apiLink.BASE_API + img).error(R.drawable.img_4).into(imgBanner);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

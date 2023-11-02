@@ -25,6 +25,7 @@ import com.example.gocoffee.R;
 import com.example.gocoffee.adapters.Home_adapter_recyclerview;
 import com.example.gocoffee.adapters.Home_category_adapter_recyclerview;
 import com.example.gocoffee.api.ApiService;
+import com.example.gocoffee.api.apiLink;
 import com.example.gocoffee.models.AllSanPham;
 import com.example.gocoffee.models.Category;
 import com.example.gocoffee.models.SanPham;
@@ -166,7 +167,7 @@ public class HomeFragment extends Fragment {
 //        String avata = bundle.getString("avata");
         tvnameuser.setText(name);
         tvroleuser.setText(role);
-        Glide.with(getContext()).load("https://gocoffe.herokuapp.com" + avata).error(R.drawable.img_4).into(imgavata);
+        Glide.with(getContext()).load(apiLink.BASE_API + avata).error(R.drawable.img_4).into(imgavata);
     }
 
     private void callAPIProducts(){
@@ -206,11 +207,6 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
     }
-
-
-
-
-
 
 
 }

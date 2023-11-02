@@ -28,7 +28,7 @@
                     android:id="@+id/tvnameuser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="DuyMoiChoi"
+                    android:text="Home"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="#EFE4C8"
