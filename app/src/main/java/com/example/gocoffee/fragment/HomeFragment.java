@@ -32,6 +32,7 @@ import com.example.gocoffee.models.SanPham;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -110,7 +111,6 @@ public class HomeFragment extends Fragment {
 
         LinearLayoutManager categoryManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         categoryRecyclerView.setLayoutManager(categoryManager);
-
         callAPIProducts();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -152,6 +152,7 @@ public class HomeFragment extends Fragment {
 //        mArrayList.add(new SanPham("Capuchino","Coffe",R.drawable.img_19,50000));
 //        mArrayList.add(new SanPham("Coffe code ","Coffe",R.drawable.img_19,60000));
 
+
     }
     private void getDataUser(){
 
@@ -177,9 +178,9 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<AllSanPham> call, Response<AllSanPham> response) {
                 allSanPham = response.body();
                 mCategoryList = Arrays.asList(response.body().getListCategory());
+                Collections.sort(mCategoryList, (c1, c2) -> c1.getName().compareTo(c2.getName()));
                 mArrayList = Arrays.asList(response.body().getListProduct());
                 Log.i("Test",mArrayList.toString());
-
                 category_adapter = new Home_category_adapter_recyclerview(getActivity(),mRecyclerView);
                 category_adapter.setData(mCategoryList);
                 categoryRecyclerView.setAdapter(category_adapter);

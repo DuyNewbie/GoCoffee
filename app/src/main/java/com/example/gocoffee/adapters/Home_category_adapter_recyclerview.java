@@ -64,7 +64,12 @@ public class Home_category_adapter_recyclerview extends RecyclerView.Adapter<Hom
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callAPIProducts(object.get_id());
+                if (object.getName().contains("All")){
+                    callAPIProduct();
+                }
+                else {
+                    callAPIProducts(object.get_id());
+                }
                 Toast.makeText(mContext, "Loading....", Toast.LENGTH_SHORT).show();
             }
         });
@@ -101,8 +106,23 @@ public class Home_category_adapter_recyclerview extends RecyclerView.Adapter<Hom
                 sanPhamAdapter = new Home_adapter_recyclerview(mContext);
                 sanPhamAdapter.setData(sanPhamList);
                 sanphamRecyclerView.setAdapter(sanPhamAdapter);
+            }
 
-
+            @Override
+            public void onFailure(Call<AllSanPham> call, Throwable t) {
+                Toast.makeText(mContext, "Lỗi call api", Toast.LENGTH_SHORT).show();
+            }
+        });
+//
+    }
+    private void callAPIProduct(){
+        ApiService.apiService.getListSanPham().enqueue(new Callback<AllSanPham>() {
+            @Override
+            public void onResponse(Call<AllSanPham> call, Response<AllSanPham> response) {
+                sanPhamList = Arrays.asList(response.body().getListProduct());
+                sanPhamAdapter = new Home_adapter_recyclerview(mContext);
+                sanPhamAdapter.setData(sanPhamList);
+                sanphamRecyclerView.setAdapter(sanPhamAdapter);
             }
 
             @Override

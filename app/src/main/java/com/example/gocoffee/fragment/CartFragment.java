@@ -102,7 +102,12 @@ public class CartFragment extends Fragment {
                     listidCart += cart.get_id();
                     listidCart += "-";
                 }
-                postBill(idUser,listidCart,TongTien);
+                if(carts.isEmpty()){
+                    Toast.makeText(getContext(), "Không có sản phẩm", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    postBill(idUser,listidCart,TongTien);
+                }
             }
         });
 
